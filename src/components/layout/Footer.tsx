@@ -18,7 +18,18 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="w-full border-t border-border bg-bg-subtle py-12">
+    <footer className="w-full bg-bg-subtle py-12 relative mt-12 print:mt-0 print:py-6">
+      {/* Wave SVG Divider */}
+      <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0] transform -translate-y-[99%] pointer-events-none print:hidden">
+        <svg
+          viewBox="0 0 1440 120"
+          preserveAspectRatio="none"
+          className="relative block w-full h-[25px] sm:h-[40px] text-bg-subtle fill-current"
+        >
+          <path d="M0,32L120,42.7C240,53,480,75,720,74.7C960,75,1200,53,1320,42.7L1440,32L1440,120L1320,120C1200,120,960,120,720,120C480,120,240,120,120,120L0,120Z" />
+        </svg>
+      </div>
+
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-12">
           
