@@ -7,14 +7,14 @@ import Magnetic from "../ui/Magnetic";
 import NeuralCanvas from "../ui/NeuralCanvas";
 import { ArrowRight, Download } from "lucide-react";
 
-export default function Hero() {
-  const roles = [
-    "Mobile Application Specialist",
-    "Backend Architecture Developer",
-    "AI & Machine Learning Integrator",
-    "Full-stack Software Engineer"
-  ];
+const roles = [
+  "Mobile Application Specialist",
+  "Backend Architecture Developer",
+  "AI & Machine Learning Integrator",
+  "Full-stack Software Engineer"
+];
 
+export default function Hero() {
   const [roleIndex, setRoleIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
@@ -49,7 +49,7 @@ export default function Hero() {
     }
 
     return () => clearTimeout(timer);
-  }, [displayText, isDeleting, roleIndex]);
+  }, [displayText, isDeleting, roleIndex, typingSpeed]);
 
   return (
     <section className="relative overflow-hidden py-16 md:py-24 border-b border-border/60">

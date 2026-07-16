@@ -1,7 +1,14 @@
-import Image from "next/image";
+import React from "react";
+
+interface MarqueeItem {
+  name: string;
+  image?: string;
+  customSvg?: React.ReactNode;
+  className?: string;
+}
 
 export default function SkillsMarquee() {
-  const row1 = [
+  const row1: MarqueeItem[] = [
     {
       name: "Flutter",
       image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg",
@@ -52,7 +59,7 @@ export default function SkillsMarquee() {
     },
   ];
 
-  const row2 = [
+  const row2: MarqueeItem[] = [
     {
       name: "React",
       image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
@@ -97,7 +104,7 @@ export default function SkillsMarquee() {
     },
   ];
 
-  const renderMarqueeRow = (items: typeof row1, reverse = false) => {
+  const renderMarqueeRow = (items: MarqueeItem[], reverse = false) => {
     // Duplicate items to ensure seamless loop
     const doubledItems = [...items, ...items, ...items];
 
@@ -118,10 +125,10 @@ export default function SkillsMarquee() {
                   <img
                     src={item.image}
                     alt={item.name}
-                    className={`h-5 w-5 object-contain ${(item as any).className || ""}`}
+                    className={`h-5 w-5 object-contain ${item.className || ""}`}
                   />
                 ) : (
-                  (item as any).customSvg
+                  item.customSvg
                 )}
               </span>
               <span className="font-sans text-sm font-semibold text-text-primary whitespace-nowrap">

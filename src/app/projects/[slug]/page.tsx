@@ -5,7 +5,7 @@ import { projects } from "@/data/projects";
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import Link from "next/link";
-import { ArrowLeft, Github, Globe, Smartphone, Shield, CheckCircle, Lightbulb, HelpCircle, Layers, ArrowUpRight } from "lucide-react";
+import { ArrowLeft, Github, CheckCircle, Lightbulb, HelpCircle, Layers, ArrowUpRight } from "lucide-react";
 
 export default function ProjectDetailPage() {
   const { slug } = useParams();

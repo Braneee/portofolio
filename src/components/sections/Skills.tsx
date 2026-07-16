@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Card from "../ui/Card";
 import { 
   Smartphone, Server, Laptop, Cpu, Award, Check, X, ExternalLink,
-  Code, Database, Lock, Brain, Layout, Globe, Wrench, Shield, Compass 
+  Code, Database, Lock, Brain, Layout, Globe, Compass 
 } from "lucide-react";
 
 interface SkillCategoryProps {
