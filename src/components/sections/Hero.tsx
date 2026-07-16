@@ -1,17 +1,66 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Button from "../ui/Button";
+import Magnetic from "../ui/Magnetic";
+import NeuralCanvas from "../ui/NeuralCanvas";
 import { ArrowRight, Download } from "lucide-react";
 
 export default function Hero() {
+  const roles = [
+    "Mobile Application Specialist",
+    "Backend Architecture Developer",
+    "AI & Machine Learning Integrator",
+    "Full-stack Software Engineer"
+  ];
+
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [displayText, setDisplayText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [typingSpeed, setTypingSpeed] = useState(90);
+
+  useEffect(() => {
+    const currentFullText = roles[roleIndex];
+    let timer: NodeJS.Timeout;
+
+    if (isDeleting) {
+      timer = setTimeout(() => {
+        setDisplayText(currentFullText.substring(0, displayText.length - 1));
+        setTypingSpeed(35);
+      }, typingSpeed);
+    } else {
+      timer = setTimeout(() => {
+        setDisplayText(currentFullText.substring(0, displayText.length + 1));
+        setTypingSpeed(80);
+      }, typingSpeed);
+    }
+
+    if (!isDeleting && displayText === currentFullText) {
+      timer = setTimeout(() => {
+        setIsDeleting(true);
+      }, 2000);
+    }
+
+    if (isDeleting && displayText === "") {
+      setIsDeleting(false);
+      setRoleIndex((prev) => (prev + 1) % roles.length);
+      setTypingSpeed(100);
+    }
+
+    return () => clearTimeout(timer);
+  }, [displayText, isDeleting, roleIndex]);
+
   return (
     <section className="relative overflow-hidden py-16 md:py-24 border-b border-border/60">
+      {/* Interactive Neural Particles Background */}
+      <NeuralCanvas />
+
       {/* Background glowing gradients */}
       <div className="absolute right-1/4 top-1/4 -z-10 h-[350px] w-[350px] rounded-full bg-primary-500/10 blur-[120px] animate-pulse-slow" />
       <div className="absolute left-1/3 bottom-1/4 -z-10 h-[300px] w-[300px] rounded-full bg-primary-700/10 blur-[100px] animate-pulse" />
 
-      {/* Style block for fluid morphing blob */}
+      {/* Style block for fluid morphing blob & cursor blink */}
       <style dangerouslySetInnerHTML={{__html: `
         @keyframes morph-blob {
           0%, 100% {
@@ -21,8 +70,15 @@ export default function Hero() {
             border-radius: 30% 60% 70% 30% / 50% 60% 30% 60%;
           }
         }
+        @keyframes blink {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0; }
+        }
         .animate-morph {
           animation: morph-blob 12s ease-in-out infinite;
+        }
+        .animate-blink {
+          animation: blink 0.9s step-end infinite;
         }
       `}} />
 
@@ -44,8 +100,9 @@ export default function Hero() {
           </h1>
 
           {/* Professional Focus Subtitle */}
-          <span className="mt-4 font-sans text-lg sm:text-xl font-semibold text-text-secondary tracking-tight">
-            Mobile Developer & Full-stack Engineer
+          <span className="mt-4 font-sans text-lg sm:text-xl font-semibold text-text-secondary tracking-tight min-h-[30px] flex items-center justify-center lg:justify-start gap-1">
+            <span>{displayText}</span>
+            <span className="w-[2px] h-[1.1em] bg-primary-500 dark:bg-primary-400 animate-blink" />
           </span>
 
           {/* Sophisticated Description */}
@@ -56,16 +113,20 @@ export default function Hero() {
           {/* CTAs */}
           <div className="mt-10 flex flex-wrap justify-center lg:justify-start gap-4">
             <Link href="/projects">
-              <Button variant="primary" size="lg" className="rounded-lg">
-                <span>Explore Projects</span>
-                <ArrowRight className="h-4 w-4" />
-              </Button>
+              <Magnetic>
+                <Button variant="primary" size="lg" className="rounded-lg">
+                  <span>Explore Projects</span>
+                  <ArrowRight className="h-4 w-4" />
+                </Button>
+              </Magnetic>
             </Link>
             <a href="/resume.pdf" download="Gibran_Rais_Hilmy_Iskandar_Resume.pdf">
-              <Button variant="secondary" size="lg" className="rounded-lg">
-                <Download className="h-4 w-4" />
-                <span>Download CV</span>
-              </Button>
+              <Magnetic>
+                <Button variant="secondary" size="lg" className="rounded-lg">
+                  <Download className="h-4 w-4" />
+                  <span>Download CV</span>
+                </Button>
+              </Magnetic>
             </a>
           </div>
         </div>

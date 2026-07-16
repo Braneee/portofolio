@@ -4,13 +4,51 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTheme } from "../ThemeProvider";
 import { Sun, Moon, Menu, X, Smartphone } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function Navbar() {
   const pathname = usePathname();
   const { theme, toggleTheme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  
+  const [hoveredRect, setHoveredRect] = useState<DOMRect | null>(null);
+  const [navContainerRect, setNavContainerRect] = useState<DOMRect | null>(null);
+  const [hoveredLink, setHoveredLink] = useState<string | null>(null);
+  const [activeRect, setActiveRect] = useState<DOMRect | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const activeLinkRef = useRef<HTMLAnchorElement>(null);
+
+  useEffect(() => {
+    const updateRects = () => {
+      if (activeLinkRef.current && containerRef.current) {
+        setActiveRect(activeLinkRef.current.getBoundingClientRect());
+        setNavContainerRect(containerRef.current.getBoundingClientRect());
+      }
+    };
+    
+    // Defer calculation slightly to let layouts fully render
+    const timer = setTimeout(updateRects, 50);
+    
+    window.addEventListener("resize", updateRects);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("resize", updateRects);
+    };
+  }, [pathname]);
+
+  const handleMouseEnter = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setHoveredRect(rect);
+    setHoveredLink(href);
+    if (containerRef.current) {
+      setNavContainerRect(containerRef.current.getBoundingClientRect());
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredLink(null);
+  };
 
   // Monitor scroll for header background blur effect
   useEffect(() => {
@@ -54,21 +92,37 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav
+            ref={containerRef}
+            className="hidden md:flex items-center gap-1 relative py-1 px-1.5 bg-surface-raised/20 border border-border/40 rounded-full backdrop-blur-sm select-none"
+            onMouseLeave={handleMouseLeave}
+          >
+            {/* Sliding Pill Background Indicator */}
+            {((hoveredLink ? hoveredRect : activeRect)) && navContainerRect && (
+              <span
+                className="absolute h-7 rounded-full bg-[#8b5cf6]/8 dark:bg-[#8b5cf6]/12 border border-[#8b5cf6]/10 dark:border-primary-500/20 transition-all duration-300 ease-out pointer-events-none -z-10"
+                style={{
+                  left: `${((hoveredLink ? hoveredRect : activeRect))!.left - navContainerRect.left}px`,
+                  width: `${((hoveredLink ? hoveredRect : activeRect))!.width}px`,
+                  top: '50%',
+                  transform: 'translateY(-50%)',
+                }}
+              />
+            )}
+
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`relative font-sans text-sm font-medium transition-colors duration-200 hover:text-primary-500 ${
-                    isActive ? "text-primary-500" : "text-text-secondary"
+                  ref={isActive ? activeLinkRef : null}
+                  onMouseEnter={(e) => handleMouseEnter(e, link.href)}
+                  className={`font-sans text-xs sm:text-sm font-semibold px-3 py-1.5 rounded-full transition-colors duration-300 ${
+                    isActive ? "text-primary-500 dark:text-primary-300" : "text-text-secondary hover:text-text-primary"
                   }`}
                 >
                   {link.label}
-                  {isActive && (
-                    <span className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-primary-500 animate-fade-in" />
-                  )}
                 </Link>
               );
             })}

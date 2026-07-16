@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
+import Magnetic from "@/components/ui/Magnetic";
 import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle, Calendar } from "lucide-react";
 
 export default function ContactPage() {
@@ -212,10 +213,12 @@ export default function ContactPage() {
               </div>
 
               {/* Submit */}
-              <Button type="submit" variant="primary" size="md" isLoading={isLoading} className="mt-2 w-full sm:w-auto self-end">
-                <Send className="h-4 w-4" />
-                <span>Send Message</span>
-              </Button>
+              <Magnetic className="mt-2 w-full sm:w-auto self-end">
+                <Button type="submit" variant="primary" size="md" isLoading={isLoading} className="w-full sm:w-auto">
+                  <Send className="h-4 w-4" />
+                  <span>Send Message</span>
+                </Button>
+              </Magnetic>
             </form>
           </Card>
         </div>
