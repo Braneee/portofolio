@@ -67,7 +67,7 @@ export default function ContactPage() {
             
             <div className="flex flex-col gap-5 font-sans text-sm text-text-secondary">
               <div className="flex items-start gap-4">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary-50 text-primary-500 dark:bg-primary-900/30 dark:text-primary-300">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary-50 text-primary-600 dark:bg-[#8b5cf6]/10 dark:text-primary-300 border border-primary-500/10 dark:border-[#8b5cf6]/20">
                   <Mail className="h-4 w-4" />
                 </span>
                 <div>
@@ -79,7 +79,7 @@ export default function ContactPage() {
               </div>
 
               <div className="flex items-start gap-4">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary-50 text-primary-500 dark:bg-primary-900/30 dark:text-primary-300">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary-50 text-primary-600 dark:bg-[#8b5cf6]/10 dark:text-primary-300 border border-primary-500/10 dark:border-[#8b5cf6]/20">
                   <Phone className="h-4 w-4" />
                 </span>
                 <div>
@@ -89,7 +89,7 @@ export default function ContactPage() {
               </div>
 
               <div className="flex items-start gap-4">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary-50 text-primary-500 dark:bg-primary-900/30 dark:text-primary-300">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary-50 text-primary-600 dark:bg-[#8b5cf6]/10 dark:text-primary-300 border border-primary-500/10 dark:border-[#8b5cf6]/20">
                   <MapPin className="h-4 w-4" />
                 </span>
                 <div>
@@ -103,7 +103,7 @@ export default function ContactPage() {
           {/* Calendar Widget Card */}
           <Card className="bg-surface border border-border">
             <div className="flex items-center gap-3 mb-4">
-              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary-50 text-primary-500 dark:bg-primary-900/30 dark:text-primary-300">
+              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary-50 text-primary-600 dark:bg-[#8b5cf6]/10 dark:text-primary-300 border border-primary-500/10 dark:border-[#8b5cf6]/20">
                 <Calendar className="h-4 w-4" />
               </span>
               <h3 className="font-sans text-base font-bold text-text-primary">
@@ -118,7 +118,7 @@ export default function ContactPage() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <span className="flex items-center justify-center gap-1.5 w-full rounded-lg border border-primary-500 py-2.5 text-center text-xs font-bold text-primary-700 bg-primary-50 hover:bg-primary-100 dark:bg-primary-950/20 dark:text-primary-400 dark:border-primary-800 transition-all duration-200 cursor-pointer">
+              <span className="flex items-center justify-center gap-1.5 w-full rounded-lg border border-primary-500/30 py-2.5 text-center text-xs font-bold text-primary-700 bg-primary-50 hover:bg-primary-100 dark:bg-[#8b5cf6]/10 dark:text-primary-300 dark:border-[#8b5cf6]/20 dark:hover:bg-[#8b5cf6]/20 transition-all duration-200 cursor-pointer">
                 <span>Book a Slot on Cal.com</span>
               </span>
             </a>
