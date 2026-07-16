@@ -45,9 +45,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="group flex items-center gap-2.5 font-sans text-xl font-bold tracking-tight text-text-primary">
-            <span className="flex h-9 w-9 items-center justify-center rounded-lg overflow-hidden border border-border/80 shadow-md shadow-primary-500/10 group-hover:scale-105 transition-transform duration-200 bg-surface-raised">
-              <img src="/grhi-logo.png" className="h-full w-full object-cover" alt="GRHI Logo" />
-            </span>
+            <img src="/grhi-logo.png" className="h-8.5 w-8.5 rounded-lg object-cover shadow-md shadow-primary-500/10 group-hover:scale-105 transition-transform duration-200" alt="GRHI Logo" />
             <span className="bg-gradient-to-r from-text-primary to-text-secondary bg-clip-text text-transparent">
               GRHI
             </span>

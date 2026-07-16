@@ -25,9 +25,7 @@ export default function Footer() {
           {/* Left Column: Brand & Professional Statement */}
           <div className="md:col-span-5 flex flex-col gap-4">
             <Link href="/" className="flex items-center gap-2.5 font-sans text-lg font-bold text-text-primary tracking-tight group">
-              <span className="flex h-8 w-8 items-center justify-center rounded-lg overflow-hidden border border-border/80 shadow-md shadow-primary-500/10 group-hover:scale-105 transition-transform duration-200 bg-surface-raised">
-                <img src="/grhi-logo.png" className="h-full w-full object-cover" alt="GRHI Logo" />
-              </span>
+              <img src="/grhi-logo.png" className="h-7.5 w-7.5 rounded-lg object-cover shadow-md shadow-primary-500/10 group-hover:scale-105 transition-transform duration-200" alt="GRHI Logo" />
               <span className="bg-gradient-to-r from-text-primary to-text-secondary bg-clip-text text-transparent">
                 GRHI
               </span>
