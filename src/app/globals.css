@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Primary - Glassmorphic Violet-Blue */
+  --color-primary-50:  #f5f3ff;
+  --color-primary-100: #ede9fe;
+  --color-primary-300: #c7d2fe;
+  --color-primary-500: #8b5cf6;  /* Brand accent: Violet */
+  --color-primary-700: #6d28d9;
+  --color-primary-900: #4c1d95;
+
+  /* Neutral / Surface - Modern SaaS Light */
+  --color-bg:            #fafafb;
+  --color-bg-subtle:     #f4f4f6;
+  --color-surface:       #ffffff;
+  --color-surface-raised:#ffffff;
+  --color-border:        #e2e8f0;
+  --color-border-strong: #cbd5e1;
+
+  /* Text */
+  --color-text-primary:   #0f172a;
+  --color-text-secondary: #475569;
+  --color-text-tertiary:  #94a3b8;
+  --color-text-inverse:   #ffffff;
+
+  /* Semantic */
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-danger:  #ef4444;
+  --color-info:    #3b82f6;
+
+  /* Interaction states */
+  --color-hover:    rgba(139, 92, 246, 0.08);
+  --color-active:   rgba(139, 92, 246, 0.16);
+  --color-focus:    #8b5cf6;
+  --color-disabled: #e2e8f0;
+}
+
+/* We use the .dark selector for Tailwind's dark class selector strategy */
+.dark {
+  /* Neutral / Surface - Glassmorphic Deep Space Navy-Black */
+  --color-bg:            #030712; /* Deep Space Navy-Black */
+  --color-bg-subtle:     #080b16; /* Nebula Dark */
+  --color-surface:       rgba(15, 23, 42, 0.45); /* Semi-transparent for Glassmorphism */
+  --color-surface-raised:rgba(30, 41, 59, 0.55);
+  --color-border:        rgba(255, 255, 255, 0.07); /* Ultra-fine borders */
+  --color-border-strong: rgba(255, 255, 255, 0.15);
+
+  --color-text-primary:   #f8fafc;
+  --color-text-secondary: #94a3b8;
+  --color-text-tertiary:  #64748b;
+  --color-text-inverse:   #030712;
+
+  --color-hover:  rgba(139, 92, 246, 0.08);
+  --color-active: rgba(139, 92, 246, 0.16);
+}
+
+/* Class modifiers for automated glassmorphic backdrop filters */
+.dark .bg-surface {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.dark .bg-surface-raised {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+  
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Keyboard focus styles */
+  :focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+  }
+}
+
+/* Custom transitions and scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-strong);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-tertiary);
+}
+
+/* Selection color */
+::selection {
+  background-color: var(--color-primary-100);
+  color: var(--color-primary-900);
+}
+
+.dark ::selection {
+  background-color: var(--color-primary-900);
+  color: var(--color-primary-50);
+}
+
+/* Infinite Scrolling Marquee */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee-reverse {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite reverse;
+}
+
+.hover-pause:hover {
+  animation-play-state: paused;
+}
+
+/* Floating Animations for Nebula background */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-25px) scale(1.04);
+  }
+}
+
+@keyframes floatSlower {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(25px) scale(0.96);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 10s ease-in-out infinite;
+}
+
+.animate-float-slower {
+  animation: floatSlower 15s ease-in-out infinite;
+}
+
+
+
