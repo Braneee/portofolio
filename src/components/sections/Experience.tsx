@@ -26,7 +26,10 @@ function TimelineItem({
       </div>
 
       {/* Line Connector */}
-      <div className="absolute left-0 sm:left-28 top-8 bottom-0 w-px -translate-x-1/2 bg-border group-last:hidden" />
+      <div 
+        className="absolute left-0 sm:left-28 top-8 bottom-0 w-[2px] -translate-x-1/2 group-last:hidden" 
+        style={{ backgroundColor: "rgba(139, 92, 246, 0.25)" }}
+      />
 
       {/* Content Card */}
       <div className="flex flex-col bg-surface/40 hover:bg-surface border border-border/60 hover:border-border p-5 rounded-xl transition-all duration-200 shadow-sm hover:shadow-md">
