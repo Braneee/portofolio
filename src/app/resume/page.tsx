@@ -245,9 +245,37 @@ export default function ResumePage() {
                   </div>
                   <span className="font-sans text-xs font-semibold text-primary-500">Flutter, Riverpod, Hive DB, Supabase, PostgreSQL, Geolocator</span>
                   <ul className="list-disc pl-5 mt-1.5 font-sans text-xs text-text-secondary space-y-1 text-justify">
-                    <li>Engineered using Clean Architecture and MVVM design patterns with Riverpod state management for robust codebase scalability.</li>
+                    <li>Engineered using Clean Architecture and MVVM design patterns with Riverpod state management.</li>
                     <li>Implemented an offline-first architecture using Hive DB with a background sync queue to automatically sync local records to Supabase.</li>
-                    <li>Integrated Geolocator and implemented the Haversine formula client-side to dynamically route users to the nearest tuberculosis clinic. Distributed via Firebase App Distribution.</li>
+                    <li><strong className="text-text-primary">GitHub:</strong> <a href="https://github.com/Braneee/stpi-mobile" target="_blank" rel="noopener noreferrer" className="hover:underline inline-flex items-center gap-0.5">github.com/Braneee/stpi-mobile <ExternalLink className="h-3 w-3" /></a></li>
+                  </ul>
+                </div>
+
+                {/* Face Recognition Attendance System */}
+                <div>
+                  <div className="flex justify-between items-start">
+                    <span className="font-sans text-sm font-bold text-text-primary">Aplikasi Presensi Online - Face Recognition</span>
+                    <span className="font-mono text-xs text-text-tertiary">2026</span>
+                  </div>
+                  <span className="font-sans text-xs font-semibold text-primary-500">Laravel 11, Flask (Python), DeepFace ArcFace, Cosine Similarity, MySQL</span>
+                  <ul className="list-disc pl-5 mt-1.5 font-sans text-xs text-text-secondary space-y-1 text-justify">
+                    <li>Developed an automated presence system using a microservices architecture connecting Laravel 11 with a Flask engine.</li>
+                    <li>Implemented face recognition using DeepFace ArcFace and Cosine Similarity for webcam-based student verification.</li>
+                    <li><strong className="text-text-primary">GitHub:</strong> <a href="https://github.com/Braneee/sistem-presensi-ooad" target="_blank" rel="noopener noreferrer" className="hover:underline inline-flex items-center gap-0.5">github.com/Braneee/sistem-presensi-ooad <ExternalLink className="h-3 w-3" /></a></li>
+                  </ul>
+                </div>
+
+                {/* CaterNear */}
+                <div>
+                  <div className="flex justify-between items-start">
+                    <span className="font-sans text-sm font-bold text-text-primary">CaterNear</span>
+                    <span className="font-mono text-xs text-text-tertiary">2026</span>
+                  </div>
+                  <span className="font-sans text-xs font-semibold text-primary-500">Laravel 11, FilamentPHP 3, Midtrans Snap, Google Maps API, MySQL</span>
+                  <ul className="list-disc pl-5 mt-1.5 font-sans text-xs text-text-secondary space-y-1 text-justify">
+                    <li>Developed a location-based marketplace platform for local catering connecting customers and vendors.</li>
+                    <li>Integrated Midtrans Snap payment gateway, FilamentPHP 3 admin panel, and Google Maps API / Geolocation.</li>
+                    <li><strong className="text-text-primary">GitHub:</strong> <a href="https://github.com/Braneee/caternear" target="_blank" rel="noopener noreferrer" className="hover:underline inline-flex items-center gap-0.5">github.com/Braneee/caternear <ExternalLink className="h-3 w-3" /></a></li>
                   </ul>
                 </div>
 
@@ -261,7 +289,7 @@ export default function ResumePage() {
                   <ul className="list-disc pl-5 mt-1.5 font-sans text-xs text-text-secondary space-y-1 text-justify">
                     <li>Developed a web-based Polyclinic Patient Registration & Medical Record Management Portal using Laravel and MySQL.</li>
                     <li>Implemented role-based access control (RBAC) for Doctors, Patients, and Administrators to secure medical records and schedules.</li>
-                    <li>Optimized database schemas, resulting in efficient record retrieval times for outpatient scheduling pipelines.</li>
+                    <li><strong className="text-text-primary">GitHub:</strong> <a href="https://github.com/Braneee/poliklinik-app" target="_blank" rel="noopener noreferrer" className="hover:underline inline-flex items-center gap-0.5">github.com/Braneee/poliklinik-app <ExternalLink className="h-3 w-3" /></a></li>
                   </ul>
                 </div>
 
@@ -275,7 +303,6 @@ export default function ResumePage() {
                   <ul className="list-disc pl-5 mt-1.5 font-sans text-xs text-text-secondary space-y-1 text-justify">
                     <li>Engineered using MVVM pattern with clean state management, supporting local product caching and role-based access control.</li>
                     <li>Integrated camera-based barcode scanning using Mobile Scanner to enable instant product lookup and addition to cart.</li>
-                    <li>Built SQLite local transaction and product details caching to ensure data accessibility during offline states. Distributed via enterprise APK installation.</li>
                   </ul>
                 </div>
 
@@ -289,7 +316,6 @@ export default function ResumePage() {
                   <ul className="list-disc pl-5 mt-1.5 font-sans text-xs text-text-secondary space-y-1 text-justify">
                     <li>Architected a containerized Django REST Framework backend using Docker Compose, optimized for high-traffic student portals.</li>
                     <li>Implemented asynchronous background tasks (PDF certificate generation and automated email dispatching) using Celery and RabbitMQ.</li>
-                    <li>Designed a Redis caching layer for course details, reducing database query loads by over 70%.</li>
                   </ul>
                 </div>
               </div>
