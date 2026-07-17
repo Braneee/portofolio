@@ -15,7 +15,7 @@ export default function ResumePage() {
     frameworks: ["Flutter SDK", "React", "Next.js", "Laravel", "Django", "Flask"],
     databases: ["MySQL", "PostgreSQL", "Supabase", "sqflite", "Hive DB", "MongoDB", "Redis"],
     tools: ["Docker & Docker Compose", "Git & GitHub", "RabbitMQ", "Celery", "Vercel", "VS Code"],
-    ai: ["Neural Networks", "PyTorch", "Keras", "TensorFlow", "RAG", "LangChain", "AI Agents", "LLM Fine-Tuning", "NLP"]
+    ai: ["Machine Learning Foundations", "Deep Learning Foundations", "Generative AI Concepts", "NLP Basics"]
   };
 
   const [modalPdf, setModalPdf] = useState<{ name: string; url: string } | null>(null);
