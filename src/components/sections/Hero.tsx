@@ -91,7 +91,7 @@ export default function Hero() {
         <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left order-2 lg:order-1">
           {/* Institution Tagline */}
           <span className="font-mono text-xs font-bold tracking-widest text-primary-500 uppercase mb-4 block">
-            Technical Informatics @ UDINUS
+            Technical Informatics
           </span>
 
           {/* Name & Title */}
