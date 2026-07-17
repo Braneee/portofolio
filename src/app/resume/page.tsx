@@ -14,7 +14,7 @@ export default function ResumePage() {
     languages: ["Dart", "PHP", "JavaScript", "TypeScript", "Python", "SQL (MySQL, PostgreSQL)"],
     frameworks: ["Flutter SDK", "React", "Next.js", "Laravel", "Django", "Flask"],
     databases: ["MySQL", "PostgreSQL", "Supabase", "sqflite", "Hive DB", "MongoDB", "Redis"],
-    tools: ["Docker", "Git", "RabbitMQ", "Celery", "Vercel", "VS Code"],
+    tools: ["Docker", "Git", "Laragon", "Vercel", "VS Code"],
     ai: ["Machine Learning Foundations", "Deep Learning Foundations", "Generative AI Concepts", "NLP Basics"]
   };
 
