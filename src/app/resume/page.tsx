@@ -310,12 +310,13 @@ export default function ResumePage() {
                 <div>
                   <div className="flex justify-between items-start">
                     <span className="font-sans text-sm font-bold text-text-primary">LMS Backend (Learning Management System API)</span>
-                    <span className="font-mono text-xs text-text-tertiary">2025</span>
+                    <span className="font-mono text-xs text-text-tertiary">2026</span>
                   </div>
                   <span className="font-sans text-xs font-semibold text-primary-500">Django, Celery, Redis, RabbitMQ, PostgreSQL, MongoDB, Docker</span>
                   <ul className="list-disc pl-5 mt-1.5 font-sans text-xs text-text-secondary space-y-1 text-justify">
                     <li>Architected a containerized Django REST Framework backend using Docker Compose, optimized for high-traffic student portals.</li>
                     <li>Implemented asynchronous background tasks (PDF certificate generation and automated email dispatching) using Celery and RabbitMQ.</li>
+                    <li><strong className="text-text-primary">GitHub:</strong> <a href="https://github.com/Braneee/final-project-pss" target="_blank" rel="noopener noreferrer" className="hover:underline inline-flex items-center gap-0.5">github.com/Braneee/final-project-pss <ExternalLink className="h-3 w-3" /></a></li>
                   </ul>
                 </div>
               </div>
