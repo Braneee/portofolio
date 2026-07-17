@@ -59,7 +59,7 @@ export default function ResumePage() {
               Mobile, Backend & Web Developer
             </p>
             <p className="font-sans text-xs text-text-secondary mt-4 max-w-xl leading-relaxed text-justify">
-              High-achieving Computer Science undergraduate with proven expertise in Mobile Application Development (Flutter, Dart). Experienced in building production-grade, offline-first mobile applications and integrating them with robust backend systems. Possesses a strong foundation in implementing on-device AI features (Google ML Kit) to deliver performant and scalable mobile solutions.
+              Informatics Engineering undergraduate student currently in the 6th semester, with a strong interest in Backend Development, Mobile Application Development, and Web Development. Experienced in building mobile applications using Flutter and integrating them with REST APIs. Possesses hands-on experience developing PHP and MySQL-based backend systems for transaction and reporting data, alongside a solid foundation in web application development. Committed to continuous technical growth and skill advancement.
             </p>
           </div>
           
