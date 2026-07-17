@@ -37,7 +37,7 @@ export default function ResumePage() {
             <Printer className="h-4 w-4" />
             <span>Print Resume</span>
           </Button>
-          <a href="/resume.pdf" download="Gibran_Rais_Hilmy_Iskandar_Resume.pdf">
+          <a href="/CV_GRHI.pdf" download="CV_GRHI.pdf">
             <Button variant="primary" size="md">
               <Download className="h-4 w-4" />
               <span>Download PDF</span>

@@ -120,7 +120,7 @@ export default function Hero() {
                 </Button>
               </Magnetic>
             </Link>
-            <a href="/resume.pdf" download="Gibran_Rais_Hilmy_Iskandar_Resume.pdf">
+            <a href="/CV_GRHI.pdf" download="CV_GRHI.pdf">
               <Magnetic>
                 <Button variant="secondary" size="lg" className="rounded-lg">
                   <Download className="h-4 w-4" />
