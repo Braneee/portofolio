@@ -8,10 +8,10 @@ import NeuralCanvas from "../ui/NeuralCanvas";
 import { ArrowRight, Download } from "lucide-react";
 
 const roles = [
-  "Mobile Application Specialist",
-  "Backend Architecture Developer",
-  "AI & Machine Learning Integrator",
-  "Full-stack Software Engineer"
+  "Informatics Engineering Student",
+  "Junior Mobile Developer",
+  "Junior Backend Developer",
+  "Junior Web Developer"
 ];
 
 export default function Hero() {
@@ -105,9 +105,9 @@ export default function Hero() {
             <span className="w-[2px] h-[1.1em] bg-primary-500 dark:bg-primary-400 animate-blink" />
           </span>
 
-          {/* Sophisticated Description */}
+          {/* Humble Description */}
           <p className="mt-6 max-w-xl font-sans text-sm sm:text-base text-text-secondary leading-relaxed text-justify">
-            I specialize in engineering high-performance, native-feeling mobile applications using <strong className="font-bold text-text-primary">Flutter</strong>, and designing secure, scalable backend architectures. Committed to combining robust software engineering principles with data security to deliver seamless digital products.
+            I am an Informatics Engineering student focused on building mobile applications using <strong className="font-bold text-text-primary">Flutter</strong> and developing backend systems with <strong className="font-bold text-text-primary">Laravel</strong>. Committed to learning new technologies and writing clean, functional code.
           </p>
 
           {/* CTAs */}
