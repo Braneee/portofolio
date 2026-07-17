@@ -221,7 +221,7 @@ export default function ResumePage() {
                   </div>
                   <span className="font-sans text-xs font-semibold text-primary-500">Decodes Media | Semarang, Indonesia</span>
                   <ul className="list-disc pl-5 mt-2 font-sans text-xs text-text-secondary space-y-1.5 text-justify">
-                    <li>Developed and launched STPI Mobile, a cross-platform Flutter application used by 500+ health workers for active tuberculosis screening.</li>
+                    <li>Developed STPI Mobile, a cross-platform Flutter application for active tuberculosis screening and patient tracking.</li>
                     <li>Implemented Clean Architecture and MVVM patterns with Riverpod state management, ensuring a highly modular and maintainable codebase.</li>
                     <li>Built an offline-first synchronization pipeline using Hive DB and Supabase, enabling seamless data entry in remote areas with low connectivity.</li>
                   </ul>
@@ -247,7 +247,7 @@ export default function ResumePage() {
                   <ul className="list-disc pl-5 mt-1.5 font-sans text-xs text-text-secondary space-y-1 text-justify">
                     <li>Engineered using Clean Architecture and MVVM design patterns with Riverpod state management for robust codebase scalability.</li>
                     <li>Implemented an offline-first architecture using Hive DB with a background sync queue to automatically sync local records to Supabase.</li>
-                    <li>Integrated Geolocator to route users to clinics based on PostGIS queries. Distributed to 500+ users via Firebase App Distribution.</li>
+                    <li>Integrated Geolocator and implemented the Haversine formula client-side to dynamically route users to the nearest tuberculosis clinic. Distributed via Firebase App Distribution.</li>
                   </ul>
                 </div>
 
@@ -257,7 +257,7 @@ export default function ResumePage() {
                     <span className="font-sans text-sm font-bold text-text-primary">Poliklinik Portal</span>
                     <span className="font-mono text-xs text-text-tertiary">2026</span>
                   </div>
-                  <span className="font-sans text-xs font-semibold text-primary-500">Laravel, MySQL, Bootstrap</span>
+                  <span className="font-sans text-xs font-semibold text-primary-500">Laravel, MySQL, TailwindCSS, DaisyUI</span>
                   <ul className="list-disc pl-5 mt-1.5 font-sans text-xs text-text-secondary space-y-1 text-justify">
                     <li>Developed a web-based Polyclinic Patient Registration & Medical Record Management Portal using Laravel and MySQL.</li>
                     <li>Implemented role-based access control (RBAC) for Doctors, Patients, and Administrators to secure medical records and schedules.</li>
@@ -271,11 +271,11 @@ export default function ResumePage() {
                     <span className="font-sans text-sm font-bold text-text-primary">WarungKu POS (Point of Sale)</span>
                     <span className="font-mono text-xs text-text-tertiary">2025</span>
                   </div>
-                  <span className="font-sans text-xs font-semibold text-primary-500">Flutter, SQLite, Google ML Kit, Supabase</span>
+                  <span className="font-sans text-xs font-semibold text-primary-500">Flutter, SQLite (sqflite), Supabase, Mobile Scanner</span>
                   <ul className="list-disc pl-5 mt-1.5 font-sans text-xs text-text-secondary space-y-1 text-justify">
                     <li>Engineered using MVVM pattern with clean state management, supporting local product caching and role-based access control.</li>
-                    <li>Integrated Google ML Kit barcode scanning API for instant product lookup via the camera under low-light environments.</li>
-                    <li>Built SQLite local transaction caching, syncing queues to Supabase when online. Distributed via enterprise APK installation.</li>
+                    <li>Integrated camera-based barcode scanning using Mobile Scanner to enable instant product lookup and addition to cart.</li>
+                    <li>Built SQLite local transaction and product details caching to ensure data accessibility during offline states. Distributed via enterprise APK installation.</li>
                   </ul>
                 </div>
 
@@ -285,7 +285,7 @@ export default function ResumePage() {
                     <span className="font-sans text-sm font-bold text-text-primary">LMS Backend (Learning Management System API)</span>
                     <span className="font-mono text-xs text-text-tertiary">2025</span>
                   </div>
-                  <span className="font-sans text-xs font-semibold text-primary-500">Django, Celery, Redis, RabbitMQ, MongoDB, Docker</span>
+                  <span className="font-sans text-xs font-semibold text-primary-500">Django, Celery, Redis, RabbitMQ, PostgreSQL, MongoDB, Docker</span>
                   <ul className="list-disc pl-5 mt-1.5 font-sans text-xs text-text-secondary space-y-1 text-justify">
                     <li>Architected a containerized Django REST Framework backend using Docker Compose, optimized for high-traffic student portals.</li>
                     <li>Implemented asynchronous background tasks (PDF certificate generation and automated email dispatching) using Celery and RabbitMQ.</li>
