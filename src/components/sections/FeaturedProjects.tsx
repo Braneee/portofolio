@@ -8,7 +8,10 @@ export default function FeaturedProjects() {
   const featured = projects.filter((p) => p.featured);
 
   return (
-    <section className="py-20 border-t border-border/60">
+    <section className="py-20 overflow-hidden relative">
+      {/* Faded Ends border line */}
+      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-border/70 to-transparent" />
+
       {/* Header block */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
         <div>

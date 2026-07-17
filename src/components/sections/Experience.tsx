@@ -63,7 +63,10 @@ export default function Experience() {
   ];
 
   return (
-    <section className="py-20 border-t border-border">
+    <section className="py-20 overflow-hidden relative">
+      {/* Faded Ends border line */}
+      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-border/70 to-transparent" />
+
       <div className="mb-12 text-center sm:text-left">
         <h2 className="font-sans text-3xl font-bold tracking-tight text-text-primary sm:text-4xl flex items-center justify-center sm:justify-start gap-2">
           <GraduationCap className="h-8 w-8 text-primary-500 shrink-0" />

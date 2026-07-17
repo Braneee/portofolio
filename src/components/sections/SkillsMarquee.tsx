@@ -142,7 +142,10 @@ export default function SkillsMarquee() {
   };
 
   return (
-    <section className="py-16 border-t border-border overflow-hidden relative">
+    <section className="py-16 overflow-hidden relative">
+      {/* Faded Ends border line */}
+      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-border/70 to-transparent" />
+
       {/* Title */}
       <div className="text-center mb-10">
         <h2 className="font-sans text-2xl font-bold tracking-tight text-text-primary sm:text-3xl">
