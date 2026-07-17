@@ -52,7 +52,10 @@ export default function Hero() {
   }, [displayText, isDeleting, roleIndex, typingSpeed]);
 
   return (
-    <section className="relative overflow-hidden py-16 md:py-24 border-b border-border/60">
+    <section className="relative overflow-hidden py-16 md:py-24">
+      {/* Subtle Neon Glow Divider */}
+      <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary-500/20 to-transparent" />
+
       {/* Interactive Neural Particles Background */}
       <NeuralCanvas />
 

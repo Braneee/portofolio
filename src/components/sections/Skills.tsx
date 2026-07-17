@@ -263,9 +263,9 @@ export default function Skills() {
   };
 
   return (
-    <section className="py-20 overflow-hidden relative">
-      {/* Faded Ends border line */}
-      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-border/70 to-transparent" />
+    <section className="py-20 relative">
+      {/* Subtle Neon Glow Divider */}
+      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary-500/20 to-transparent" />
 
       {/* Title */}
       <div className="mb-16 text-left">
