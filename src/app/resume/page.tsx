@@ -59,7 +59,7 @@ export default function ResumePage() {
               Mobile, Backend & Web Developer
             </p>
             <p className="font-sans text-xs text-text-secondary mt-4 max-w-xl leading-relaxed text-justify">
-              Informatics Engineering undergraduate student currently in the 6th semester, with a strong interest in Backend Development, Mobile Application Development, and Web Development. Experienced in building mobile applications using Flutter and integrating them with REST APIs. Possesses hands-on experience developing PHP and MySQL-based backend systems for transaction and reporting data, alongside a solid foundation in web application development. Committed to continuous technical growth and skill advancement.
+              Informatics Engineering undergraduate student in the 6th semester, with a strong interest in Backend Development, Mobile Application Development, and Web Development. Experienced in building mobile applications using Flutter and integrating them with REST APIs. Hands-on experience developing PHP and MySQL-based backend systems for transaction and reporting data, alongside a solid foundation in web application development. Committed to continuous technical growth and skill advancement.
             </p>
           </div>
           
