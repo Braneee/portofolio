@@ -293,19 +293,6 @@ export default function ResumePage() {
                   </ul>
                 </div>
 
-                {/* WarungKu POS */}
-                <div>
-                  <div className="flex justify-between items-start">
-                    <span className="font-sans text-sm font-bold text-text-primary">WarungKu POS (Point of Sale)</span>
-                    <span className="font-mono text-xs text-text-tertiary">2025</span>
-                  </div>
-                  <span className="font-sans text-xs font-semibold text-primary-500">Flutter, SQLite (sqflite), Supabase, Mobile Scanner</span>
-                  <ul className="list-disc pl-5 mt-1.5 font-sans text-xs text-text-secondary space-y-1 text-justify">
-                    <li>Engineered using MVVM pattern with clean state management, supporting local product caching and role-based access control.</li>
-                    <li>Integrated camera-based barcode scanning using Mobile Scanner to enable instant product lookup and addition to cart.</li>
-                  </ul>
-                </div>
-
                 {/* LMS Backend */}
                 <div>
                   <div className="flex justify-between items-start">
@@ -317,6 +304,19 @@ export default function ResumePage() {
                     <li>Architected a containerized Django REST Framework backend using Docker Compose, optimized for high-traffic student portals.</li>
                     <li>Implemented asynchronous background tasks (PDF certificate generation and automated email dispatching) using Celery and RabbitMQ.</li>
                     <li><strong className="text-text-primary">GitHub:</strong> <a href="https://github.com/Braneee/final-project-pss" target="_blank" rel="noopener noreferrer" className="hover:underline inline-flex items-center gap-0.5">github.com/Braneee/final-project-pss <ExternalLink className="h-3 w-3" /></a></li>
+                  </ul>
+                </div>
+
+                {/* WarungKu POS */}
+                <div>
+                  <div className="flex justify-between items-start">
+                    <span className="font-sans text-sm font-bold text-text-primary">WarungKu POS (Point of Sale)</span>
+                    <span className="font-mono text-xs text-text-tertiary">2025</span>
+                  </div>
+                  <span className="font-sans text-xs font-semibold text-primary-500">Flutter, SQLite (sqflite), Supabase, Mobile Scanner</span>
+                  <ul className="list-disc pl-5 mt-1.5 font-sans text-xs text-text-secondary space-y-1 text-justify">
+                    <li>Engineered using MVVM pattern with clean state management, supporting local product caching and role-based access control.</li>
+                    <li>Integrated camera-based barcode scanning using Mobile Scanner to enable instant product lookup and addition to cart.</li>
                   </ul>
                 </div>
               </div>
