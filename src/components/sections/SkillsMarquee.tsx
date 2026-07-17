@@ -144,7 +144,7 @@ export default function SkillsMarquee() {
   return (
     <section className="py-16 overflow-hidden relative">
       {/* Subtle Neon Glow Divider */}
-      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary-500/20 to-transparent" />
+      <div className="neon-divider top-0" />
 
       {/* Title */}
       <div className="text-center mb-10">

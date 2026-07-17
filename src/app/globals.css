@@ -167,5 +167,22 @@
   animation: floatSlower 15s ease-in-out infinite;
 }
 
+/* Subtle Neon Glow Divider Utility */
+.neon-divider {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(139, 92, 246, 0.25) 20%,
+    rgba(139, 92, 246, 0.25) 80%,
+    transparent
+  );
+  pointer-events: none;
+  z-index: 10;
+}
+
 
 

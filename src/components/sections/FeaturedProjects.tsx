@@ -10,7 +10,7 @@ export default function FeaturedProjects() {
   return (
     <section className="py-20 relative">
       {/* Subtle Neon Glow Divider */}
-      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary-500/20 to-transparent" />
+      <div className="neon-divider top-0" />
 
       {/* Header block */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
