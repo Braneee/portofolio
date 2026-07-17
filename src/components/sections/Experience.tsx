@@ -38,7 +38,7 @@ function TimelineItem({
         </h3>
         <span className="font-sans text-xs font-semibold text-primary-500 mt-0.5">{company}</span>
         
-        <p className="font-sans text-xs text-text-secondary mt-3 leading-relaxed">
+        <p className="font-sans text-xs text-text-secondary mt-3 leading-relaxed text-justify">
           {description}
         </p>
       </div>

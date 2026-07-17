@@ -220,7 +220,7 @@ export default function ResumePage() {
                     <span className="font-mono text-xs text-text-tertiary">Feb 2026 - May 2026</span>
                   </div>
                   <span className="font-sans text-xs font-semibold text-primary-500">Decodes Media | Semarang, Indonesia</span>
-                  <ul className="list-disc pl-5 mt-2 font-sans text-xs text-text-secondary space-y-1.5">
+                  <ul className="list-disc pl-5 mt-2 font-sans text-xs text-text-secondary space-y-1.5 text-justify">
                     <li>Developed and launched STPI Mobile, a cross-platform Flutter application used by 500+ health workers for active tuberculosis screening.</li>
                     <li>Implemented Clean Architecture and MVVM patterns with Riverpod state management, ensuring a highly modular and maintainable codebase.</li>
                     <li>Built an offline-first synchronization pipeline using Hive DB and Supabase, enabling seamless data entry in remote areas with low connectivity.</li>
@@ -244,7 +244,7 @@ export default function ResumePage() {
                     <span className="font-mono text-xs text-text-tertiary">2026</span>
                   </div>
                   <span className="font-sans text-xs font-semibold text-primary-500">Flutter, Riverpod, Hive DB, Supabase, PostgreSQL, Geolocator</span>
-                  <ul className="list-disc pl-5 mt-1.5 font-sans text-xs text-text-secondary space-y-1">
+                  <ul className="list-disc pl-5 mt-1.5 font-sans text-xs text-text-secondary space-y-1 text-justify">
                     <li>Engineered using Clean Architecture and MVVM design patterns with Riverpod state management for robust codebase scalability.</li>
                     <li>Implemented an offline-first architecture using Hive DB with a background sync queue to automatically sync local records to Supabase.</li>
                     <li>Integrated Geolocator to route users to clinics based on PostGIS queries. Distributed to 500+ users via Firebase App Distribution.</li>
@@ -258,7 +258,7 @@ export default function ResumePage() {
                     <span className="font-mono text-xs text-text-tertiary">2026</span>
                   </div>
                   <span className="font-sans text-xs font-semibold text-primary-500">Laravel, MySQL, Bootstrap</span>
-                  <ul className="list-disc pl-5 mt-1.5 font-sans text-xs text-text-secondary space-y-1">
+                  <ul className="list-disc pl-5 mt-1.5 font-sans text-xs text-text-secondary space-y-1 text-justify">
                     <li>Developed a web-based Polyclinic Patient Registration & Medical Record Management Portal using Laravel and MySQL.</li>
                     <li>Implemented role-based access control (RBAC) for Doctors, Patients, and Administrators to secure medical records and schedules.</li>
                     <li>Optimized database schemas, resulting in efficient record retrieval times for outpatient scheduling pipelines.</li>
@@ -272,7 +272,7 @@ export default function ResumePage() {
                     <span className="font-mono text-xs text-text-tertiary">2025</span>
                   </div>
                   <span className="font-sans text-xs font-semibold text-primary-500">Flutter, SQLite, Google ML Kit, Supabase</span>
-                  <ul className="list-disc pl-5 mt-1.5 font-sans text-xs text-text-secondary space-y-1">
+                  <ul className="list-disc pl-5 mt-1.5 font-sans text-xs text-text-secondary space-y-1 text-justify">
                     <li>Engineered using MVVM pattern with clean state management, supporting local product caching and role-based access control.</li>
                     <li>Integrated Google ML Kit barcode scanning API for instant product lookup via the camera under low-light environments.</li>
                     <li>Built SQLite local transaction caching, syncing queues to Supabase when online. Distributed via enterprise APK installation.</li>
@@ -286,7 +286,7 @@ export default function ResumePage() {
                     <span className="font-mono text-xs text-text-tertiary">2025</span>
                   </div>
                   <span className="font-sans text-xs font-semibold text-primary-500">Django, Celery, Redis, RabbitMQ, MongoDB, Docker</span>
-                  <ul className="list-disc pl-5 mt-1.5 font-sans text-xs text-text-secondary space-y-1">
+                  <ul className="list-disc pl-5 mt-1.5 font-sans text-xs text-text-secondary space-y-1 text-justify">
                     <li>Architected a containerized Django REST Framework backend using Docker Compose, optimized for high-traffic student portals.</li>
                     <li>Implemented asynchronous background tasks (PDF certificate generation and automated email dispatching) using Celery and RabbitMQ.</li>
                     <li>Designed a Redis caching layer for course details, reducing database query loads by over 70%.</li>
@@ -308,7 +308,7 @@ export default function ResumePage() {
                     <span className="font-mono text-xs text-text-tertiary">2023 - Present</span>
                   </div>
                   <span className="font-sans text-xs font-semibold text-primary-500">Dian Nuswantoro University (UDINUS) | Semarang, Indonesia</span>
-                  <p className="font-sans text-xs text-text-secondary mt-2">
+                  <p className="font-sans text-xs text-text-secondary mt-2 text-justify">
                     GPA: **3.68 / 4.00 (6th Semester)**. Academic Focus: Object-Oriented Programming (OOP), Data Structures & Algorithms, Software Engineering, Relational Database Systems, Web & Mobile Development.
                   </p>
                 </div>

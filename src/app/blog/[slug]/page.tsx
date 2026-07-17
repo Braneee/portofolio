@@ -26,7 +26,7 @@ export default function BlogPostPage() {
       if (!currentList) return;
       const ListTag = currentList.type;
       elements.push(
-        <ListTag key={key} className={`pl-6 my-4 space-y-2 font-sans text-sm text-text-secondary ${currentList.type === "ul" ? "list-disc" : "list-decimal"}`}>
+        <ListTag key={key} className={`pl-6 my-4 space-y-2 font-sans text-sm text-text-secondary text-justify ${currentList.type === "ul" ? "list-disc" : "list-decimal"}`}>
           {currentList.items.map((item, idx) => {
             const parts = item.split(/\*\*(.*?)\*\*/g);
             return (
@@ -135,7 +135,7 @@ export default function BlogPostPage() {
       flushList(`list-${i}`);
       const parts = trimmed.split(/\*\*(.*?)\*\*/g);
       elements.push(
-        <p key={`p-${i}`} className="font-sans text-sm text-text-secondary leading-relaxed mb-4">
+        <p key={`p-${i}`} className="font-sans text-sm text-text-secondary leading-relaxed mb-4 text-justify">
           {parts.map((part, idx) => idx % 2 === 1 ? <strong key={idx} className="font-semibold text-text-primary">{part}</strong> : part)}
         </p>
       );

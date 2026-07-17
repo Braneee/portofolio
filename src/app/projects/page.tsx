@@ -132,7 +132,7 @@ export default function ProjectsPage() {
                     </p>
 
                     {/* Description text */}
-                    <p className="font-sans text-xs sm:text-sm text-text-secondary mt-4 line-clamp-3 leading-relaxed">
+                    <p className="font-sans text-xs sm:text-sm text-text-secondary mt-4 line-clamp-3 leading-relaxed text-justify">
                       {project.description}
                     </p>
 

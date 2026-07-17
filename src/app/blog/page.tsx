@@ -111,7 +111,7 @@ export default function BlogPage() {
             <h2 className="font-sans text-xl font-bold text-text-primary group-hover:text-primary-500 transition-colors duration-200 leading-snug">
               {post.title}
             </h2>
-            <p className="font-sans text-sm text-text-secondary mt-3 leading-relaxed">
+            <p className="font-sans text-sm text-text-secondary mt-3 leading-relaxed text-justify">
               {post.excerpt}
             </p>
 

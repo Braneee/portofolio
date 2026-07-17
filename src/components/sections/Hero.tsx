@@ -106,7 +106,7 @@ export default function Hero() {
           </span>
 
           {/* Sophisticated Description */}
-          <p className="mt-6 max-w-xl font-sans text-sm sm:text-base text-text-secondary leading-relaxed">
+          <p className="mt-6 max-w-xl font-sans text-sm sm:text-base text-text-secondary leading-relaxed text-justify">
             I specialize in engineering high-performance, native-feeling mobile applications using <strong className="font-bold text-text-primary">Flutter</strong>, and designing secure, scalable backend architectures. Committed to combining robust software engineering principles with data security to deliver seamless digital products.
           </p>
 
