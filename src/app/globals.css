@@ -184,5 +184,15 @@
   z-index: 10;
 }
 
+/* Optimize Justified Text with Syllable Hyphenation */
+.text-justify {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+}
+
 
 
