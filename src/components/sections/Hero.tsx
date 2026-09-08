@@ -1,166 +1,93 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import Link from "next/link";
+import { motion } from "motion/react";
 import Button from "../ui/Button";
 import Magnetic from "../ui/Magnetic";
-import NeuralCanvas from "../ui/NeuralCanvas";
 import { ArrowRight, Download } from "lucide-react";
 
-const roles = [
-  "Informatics Engineering Student",
-  "Junior Mobile Developer",
-  "Junior Backend Developer",
-  "Junior Web Developer"
-];
-
 export default function Hero() {
-  const [roleIndex, setRoleIndex] = useState(0);
-  const [displayText, setDisplayText] = useState("");
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [typingSpeed, setTypingSpeed] = useState(90);
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
+  };
 
-  useEffect(() => {
-    const currentFullText = roles[roleIndex];
-    let timer: NodeJS.Timeout;
-
-    if (isDeleting) {
-      timer = setTimeout(() => {
-        setDisplayText(currentFullText.substring(0, displayText.length - 1));
-        setTypingSpeed(35);
-      }, typingSpeed);
-    } else {
-      timer = setTimeout(() => {
-        setDisplayText(currentFullText.substring(0, displayText.length + 1));
-        setTypingSpeed(80);
-      }, typingSpeed);
-    }
-
-    if (!isDeleting && displayText === currentFullText) {
-      timer = setTimeout(() => {
-        setIsDeleting(true);
-      }, 2000);
-    }
-
-    if (isDeleting && displayText === "") {
-      setIsDeleting(false);
-      setRoleIndex((prev) => (prev + 1) % roles.length);
-      setTypingSpeed(100);
-    }
-
-    return () => clearTimeout(timer);
-  }, [displayText, isDeleting, roleIndex, typingSpeed]);
+  const itemVariants = {
+    hidden: { opacity: 0, y: 24 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
+    },
+  };
 
   return (
-    <section className="relative overflow-hidden py-16 md:py-24">
-      {/* Subtle Neon Glow Divider */}
-      <div className="neon-divider bottom-0" />
-
-      {/* Interactive Neural Particles Background */}
-      <NeuralCanvas />
-
-      {/* Background glowing gradients */}
-      <div className="absolute right-1/4 top-1/4 -z-10 h-[350px] w-[350px] rounded-full bg-primary-500/10 blur-[120px] animate-pulse-slow" />
-      <div className="absolute left-1/3 bottom-1/4 -z-10 h-[300px] w-[300px] rounded-full bg-primary-700/10 blur-[100px] animate-pulse" />
-
-      {/* Style block for fluid morphing blob & cursor blink */}
-      <style dangerouslySetInnerHTML={{__html: `
-        @keyframes morph-blob {
-          0%, 100% {
-            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-          }
-          50% {
-            border-radius: 30% 60% 70% 30% / 50% 60% 30% 60%;
-          }
-        }
-        @keyframes blink {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0; }
-        }
-        .animate-morph {
-          animation: morph-blob 12s ease-in-out infinite;
-        }
-        .animate-blink {
-          animation: blink 0.9s step-end infinite;
-        }
-      `}} />
-
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+    <section className="relative w-full min-h-[90dvh] flex items-center justify-center pt-24 pb-16 overflow-hidden">
+      <motion.div 
+        className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 items-center w-full max-w-7xl mx-auto px-6"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
         
-        {/* Left Column: Polished & Professional Typography */}
-        <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left order-2 lg:order-1">
-          {/* Institution Tagline */}
-          <span className="font-mono text-xs font-bold tracking-widest text-primary-500 uppercase mb-4 block">
-            Technical Informatics
-          </span>
-
-          {/* Name & Title */}
-          <h1 className="font-sans text-4xl font-extrabold tracking-tight text-text-primary sm:text-6xl leading-none">
-            Hi, I&apos;m{" "}
-            <span className="bg-gradient-to-r from-primary-500 via-primary-600 to-primary-800 bg-clip-text text-transparent dark:from-primary-300 dark:to-primary-500 block mt-1">
+        {/* Left Column: Typography */}
+        <div className="lg:col-span-7 flex flex-col items-start text-left">
+          <motion.div variants={itemVariants} className="overflow-hidden">
+            <h1 className="font-sans text-5xl md:text-7xl lg:text-[5.5rem] font-medium tracking-tight text-text-primary leading-[1.1]">
               Gibran Rais Hilmy
-            </span>
-          </h1>
+            </h1>
+          </motion.div>
+          
+          <motion.div variants={itemVariants} className="mt-4">
+             <h2 className="font-sans text-2xl md:text-3xl text-text-secondary tracking-tight">
+               Software Engineer &amp; Mobile Developer
+             </h2>
+          </motion.div>
 
-          {/* Professional Focus Subtitle */}
-          <span className="mt-4 font-sans text-lg sm:text-xl font-semibold text-text-secondary tracking-tight min-h-[30px] flex items-center justify-center lg:justify-start gap-1">
-            <span>{displayText}</span>
-            <span className="w-[2px] h-[1.1em] bg-primary-500 dark:bg-primary-400 animate-blink" />
-          </span>
+          <motion.div variants={itemVariants} className="mt-8 max-w-lg">
+            <p className="font-sans text-base md:text-lg text-text-secondary leading-relaxed">
+              Informatics Engineering student building precise, functional mobile applications with Flutter and resilient backend systems with Laravel.
+            </p>
+          </motion.div>
 
-          {/* Humble Description */}
-          <p className="mt-6 max-w-xl font-sans text-sm sm:text-base text-text-secondary leading-relaxed text-justify">
-            I am an Informatics Engineering student focused on building mobile applications using <strong className="font-bold text-text-primary">Flutter</strong> and developing backend systems with <strong className="font-bold text-text-primary">Laravel</strong>. Committed to learning new technologies and writing clean, functional code.
-          </p>
-
-          {/* CTAs */}
-          <div className="mt-10 flex flex-wrap justify-center lg:justify-start gap-4">
+          <motion.div variants={itemVariants} className="mt-12 flex flex-wrap items-center gap-6">
             <Link href="/projects">
               <Magnetic>
-                <Button variant="primary" size="lg" className="rounded-lg">
-                  <span>Explore Projects</span>
-                  <ArrowRight className="h-4 w-4" />
-                </Button>
+                <button className="group relative flex items-center gap-3 rounded-full bg-text-primary text-bg px-8 py-4 text-sm font-medium transition-transform hover:scale-105 active:scale-95">
+                  <span>Explore Work</span>
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </button>
               </Magnetic>
             </Link>
-            <a href="/CV_GRHI.pdf" download="CV_GRHI.pdf">
-              <Magnetic>
-                <Button variant="secondary" size="lg" className="rounded-lg">
-                  <Download className="h-4 w-4" />
-                  <span>Download CV</span>
-                </Button>
-              </Magnetic>
+            <a href="/CV_GRHI.pdf" download="CV_GRHI.pdf" className="group flex items-center gap-2 text-sm font-medium text-text-primary hover:text-text-tertiary transition-colors">
+              <Download className="h-4 w-4" />
+              <span>Download Resumé</span>
             </a>
-          </div>
+          </motion.div>
         </div>
 
-        {/* Right Column: Dual-Tone Gradient Mask Photo (Design 2) */}
-        <div className="lg:col-span-5 flex justify-center w-full order-1 lg:order-2">
-          <div className="relative w-full max-w-[300px] aspect-square flex items-center justify-center">
-            
-            {/* Glowing Backdrop Outline Layer */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-primary-600 via-primary-500 to-primary-800 rounded-full blur-2xl opacity-30 animate-pulse" />
-            
-            {/* Morphing Gradient border container */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-primary-500 via-primary-600 to-primary-800 p-1.5 animate-morph shadow-2xl transition-all duration-300 hover:scale-103">
-              
-              {/* Photo Mask container */}
-              <div className="w-full h-full bg-surface rounded-full overflow-hidden animate-morph relative">
-                <img
-                  src="/profile.jpg"
-                  alt="Gibran Rais Hilmy Iskandar"
-                  className="w-full h-full object-cover scale-105 hover:scale-110 transition-transform duration-500"
-                />
-                
-                {/* Thin overlay ring */}
-                <div className="absolute inset-0 border border-primary-500/20 rounded-full pointer-events-none animate-morph" />
-              </div>
-            </div>
-            
-          </div>
+        {/* Right Column: Editorial Portrait */}
+        <div className="lg:col-span-5 w-full flex justify-end">
+          <motion.div 
+            variants={itemVariants} 
+            className="relative w-full max-w-[400px] aspect-[4/5] rounded-2xl overflow-hidden bg-surface shadow-2xl"
+          >
+            <div className="absolute inset-0 bg-neutral-900/10 z-10 mix-blend-overlay" />
+            <img
+              src="/profile.jpg"
+              alt="Gibran Rais Hilmy"
+              className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-700 ease-out"
+            />
+          </motion.div>
         </div>
 
-      </div>
+      </motion.div>
     </section>
   );
 }

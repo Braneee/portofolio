@@ -66,9 +66,7 @@ export default function Experience() {
   ];
 
   return (
-    <section className="py-20 relative">
-      {/* Subtle Neon Glow Divider */}
-      <div className="neon-divider top-0" />
+    <section className="py-32 relative">
 
       <div className="mb-12 text-center sm:text-left">
         <h2 className="font-sans text-3xl font-bold tracking-tight text-text-primary sm:text-4xl flex items-center justify-center sm:justify-start gap-2">

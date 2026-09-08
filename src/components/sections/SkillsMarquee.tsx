@@ -142,22 +142,16 @@ export default function SkillsMarquee() {
   };
 
   return (
-    <section className="py-16 overflow-hidden relative">
-      {/* Subtle Neon Glow Divider */}
-      <div className="neon-divider top-0" />
-
+    <section className="py-32 overflow-hidden relative">
       {/* Title */}
-      <div className="text-center mb-10">
-        <h2 className="font-sans text-2xl font-bold tracking-tight text-text-primary sm:text-3xl">
-          Core Technologies & Tools
+      <div className="text-center mb-16">
+        <h2 className="font-sans text-3xl font-medium tracking-tight text-text-primary sm:text-4xl">
+          Core Stack
         </h2>
-        <p className="font-sans text-sm text-text-secondary mt-1">
-          Hover over a technology card to pause the scroll.
-        </p>
       </div>
 
       {/* Marquee Wrapper with side fade-out gradients */}
-      <div className="relative w-full overflow-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-20 before:bg-gradient-to-r before:from-bg before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-20 after:bg-gradient-to-l after:from-bg after:to-transparent">
+      <div className="relative w-full overflow-hidden before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-32 before:bg-gradient-to-r before:from-bg before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-32 after:bg-gradient-to-l after:from-bg after:to-transparent">
         {/* Row 1: Left to Right */}
         {renderMarqueeRow(row1, false)}
         {/* Row 2: Right to Left */}

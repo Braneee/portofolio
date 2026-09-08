@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { motion } from "motion/react";
 import Card from "../ui/Card";
 import Badge from "../ui/Badge";
 import { projects } from "@/data/projects";
@@ -7,40 +8,55 @@ import { ArrowRight, Smartphone } from "lucide-react";
 export default function FeaturedProjects() {
   const featured = projects.filter((p) => p.featured);
 
-  return (
-    <section className="py-20 relative">
-      {/* Subtle Neon Glow Divider */}
-      <div className="neon-divider top-0" />
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
 
+  const item = {
+    hidden: { opacity: 0, y: 30 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } }
+  };
+
+  return (
+    <section className="py-32 relative">
       {/* Header block */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-16">
         <div>
-          <span className="font-mono text-xs font-bold tracking-widest text-primary-500 uppercase mb-3 block">
-            FEATURED WORKS
-          </span>
-          <h2 className="font-sans text-3xl font-bold tracking-tight text-text-primary sm:text-4xl">
-            Selected Projects
+          <h2 className="font-sans text-4xl lg:text-5xl font-medium tracking-tight text-text-primary">
+            Selected Work
           </h2>
-          <p className="font-sans text-sm text-text-secondary mt-2 max-w-xl">
+          <p className="font-sans text-base text-text-secondary mt-4 max-w-xl">
             A look at my primary work: production-grade, offline-first mobile applications built with Flutter, integrated with scalable database backends.
           </p>
         </div>
         <Link
           href="/projects"
-          className="group flex items-center gap-1.5 font-sans text-xs font-bold uppercase tracking-wider text-primary-500 hover:text-primary-600 transition-colors mt-4 md:mt-0"
+          className="group flex items-center gap-1.5 font-sans text-sm font-medium text-text-primary hover:text-text-secondary transition-colors mt-6 md:mt-0"
         >
           <span>View all projects</span>
-          <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
+          <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
         </Link>
       </div>
 
       {/* Projects Grid */}
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+      <motion.div 
+        className="grid grid-cols-1 gap-12 md:grid-cols-2"
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.1 }}
+      >
         {featured.map((project) => (
-          <Card
-            key={project.slug}
-            className="flex flex-col justify-between h-full border border-border/80 bg-surface/40 hover:bg-surface hover:-translate-y-1 hover:shadow-xl hover:shadow-primary-500/5 transition-all duration-300 p-0 overflow-hidden rounded-2xl group"
-          >
+          <motion.div key={project.slug} variants={item}>
+            <Card
+              className="flex flex-col justify-between h-full border border-border/80 bg-surface/40 hover:bg-surface transition-all duration-500 p-0 overflow-hidden rounded-2xl group"
+            >
             {/* Website/App Screenshot Preview */}
             <div className="w-full aspect-[16/9] overflow-hidden border-b border-border/60 relative bg-bg-subtle">
               <img
@@ -100,8 +116,9 @@ export default function FeaturedProjects() {
               </Link>
             </div>
           </Card>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }

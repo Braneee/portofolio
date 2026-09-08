@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
+import { motion, useReducedMotion } from "motion/react";
 
 interface FadeInProps {
   children: React.ReactNode;
@@ -15,54 +16,37 @@ export default function FadeIn({
   direction = "up",
   duration = 700,
 }: FadeInProps) {
-  const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
+  const reduce = useReducedMotion();
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.05 }
-    );
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  const getDirectionClass = () => {
+  const getDirectionOffset = () => {
     switch (direction) {
       case "up":
-        return "translate-y-8";
+        return { y: 24, x: 0 };
       case "down":
-        return "-translate-y-8";
+        return { y: -24, x: 0 };
       case "left":
-        return "translate-x-8";
+        return { y: 0, x: 24 };
       case "right":
-        return "-translate-x-8";
+        return { y: 0, x: -24 };
       default:
-        return "translate-y-8";
+        return { y: 24, x: 0 };
     }
   };
 
+  const offset = getDirectionOffset();
+
   return (
-    <div
-      ref={ref}
-      className="transition-all ease-out transform"
-      style={{
-        opacity: isVisible ? 1 : 0,
-        transform: isVisible ? "none" : getDirectionClass(),
-        transitionDuration: `${duration}ms`,
-        transitionDelay: `${delay}ms`,
+    <motion.div
+      initial={reduce ? false : { opacity: 0, ...offset }}
+      whileInView={{ opacity: 1, y: 0, x: 0 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{
+        duration: duration / 1000,
+        delay: delay / 1000,
+        ease: [0.16, 1, 0.3, 1], // fluid spring-like ease
       }}
     >
       {children}
-    </div>
+    </motion.div>
   );
 }

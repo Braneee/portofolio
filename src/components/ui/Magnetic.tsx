@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef } from "react";
+import { motion, useMotionValue, useSpring } from "motion/react";
 
 interface MagneticProps {
   children: React.ReactElement;
@@ -11,55 +12,59 @@ interface MagneticProps {
 
 export default function Magnetic({
   children,
-  range = 60,
+  range = 200,
   strength = 0.35,
   className = "",
 }: MagneticProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  
+  const springConfig = { damping: 15, stiffness: 150, mass: 0.1 };
+  const springX = useSpring(x, springConfig);
+  const springY = useSpring(y, springConfig);
 
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!ref.current) return;
-      const { clientX, clientY } = e;
-      const { left, top, width, height } = ref.current.getBoundingClientRect();
-      
-      const centerX = left + width / 2;
-      const centerY = top + height / 2;
-      
-      const distX = clientX - centerX;
-      const distY = clientY - centerY;
-      const distance = Math.sqrt(distX * distX + distY * distY);
-      
-      if (distance < range) {
-        setPosition({ x: distX * strength, y: distY * strength });
-      } else {
-        setPosition({ x: 0, y: 0 });
-      }
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, [range, strength]);
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!ref.current) return;
+    const { clientX, clientY } = e;
+    const { left, top, width, height } = ref.current.getBoundingClientRect();
+    
+    const centerX = left + width / 2;
+    const centerY = top + height / 2;
+    
+    const distX = clientX - centerX;
+    const distY = clientY - centerY;
+    const distance = Math.sqrt(distX * distX + distY * distY);
+    
+    if (distance < range) {
+      x.set(distX * strength);
+      y.set(distY * strength);
+    } else {
+      x.set(0);
+      y.set(0);
+    }
+  };
 
   const handleMouseLeave = () => {
-    setPosition({ x: 0, y: 0 });
+    x.set(0);
+    y.set(0);
   };
 
   const child = React.Children.only(children);
   
   return (
-    <div
+    <motion.div
       ref={ref}
+      onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className={`inline-block transition-transform duration-300 ease-out ${className}`}
+      className={`inline-block ${className}`}
       style={{
-        transform: `translate3d(${position.x}px, ${position.y}px, 0px)`
+        x: springX,
+        y: springY,
       }}
     >
       {child}
-    </div>
+    </motion.div>
   );
 }

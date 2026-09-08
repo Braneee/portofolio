@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { motion } from "motion/react";
 import Card from "../ui/Card";
 import { 
   Smartphone, Server, Laptop, Cpu, Award, Check, X, ExternalLink,
@@ -287,9 +288,30 @@ export default function Skills() {
           <span className="font-mono text-xs font-bold uppercase tracking-wider text-text-tertiary mb-2 block">
             Focus Areas
           </span>
-          <div className="flex flex-col gap-8">
+          <motion.div 
+            className="flex flex-col gap-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.1,
+                }
+              }
+            }}
+          >
             {proficiencies.map((attr) => (
-              <div key={attr.name} className="flex gap-4">
+              <motion.div 
+                key={attr.name} 
+                className="flex gap-4"
+                variants={{
+                  hidden: { opacity: 0, x: -20 },
+                  visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" } }
+                }}
+              >
                 <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary-500/10 text-primary-500">
                   {attr.icon}
                 </div>
@@ -301,9 +323,9 @@ export default function Skills() {
                     {attr.description}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
 
         {/* Right Column: Technology Stack */}

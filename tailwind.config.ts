@@ -40,8 +40,8 @@ const config: Config = {
         disabled: "var(--color-disabled)",
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "Inter", "-apple-system", "sans-serif"],
-        mono: ["var(--font-jetbrains-mono)", "JetBrains Mono", "monospace"],
+        sans: ["var(--font-geist-sans)", "sans-serif"],
+        mono: ["var(--font-geist-mono)", "monospace"],
       },
     },
   },
