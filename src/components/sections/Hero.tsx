@@ -1,12 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "motion/react";
+import { motion, Variants } from "motion/react";
 import Magnetic from "../ui/Magnetic";
 import { ArrowRight, Download } from "lucide-react";
 
 export default function Hero() {
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -17,7 +17,7 @@ export default function Hero() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 24 },
     visible: {
       opacity: 1,

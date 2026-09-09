@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { motion } from "motion/react";
+import { motion, Variants } from "motion/react";
 import Card from "../ui/Card";
 import Badge from "../ui/Badge";
 import { projects } from "@/data/projects";
@@ -8,7 +8,7 @@ import { ArrowRight, Smartphone } from "lucide-react";
 export default function FeaturedProjects() {
   const featured = projects.filter((p) => p.featured);
 
-  const container = {
+  const container: Variants = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
@@ -18,7 +18,7 @@ export default function FeaturedProjects() {
     }
   };
 
-  const item = {
+  const item: Variants = {
     hidden: { opacity: 0, y: 30 },
     show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } }
   };
