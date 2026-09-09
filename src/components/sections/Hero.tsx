@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { motion } from "motion/react";
-import Button from "../ui/Button";
 import Magnetic from "../ui/Magnetic";
 import { ArrowRight, Download } from "lucide-react";
 
