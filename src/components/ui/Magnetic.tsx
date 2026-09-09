@@ -51,6 +51,12 @@ export default function Magnetic({
     y.set(0);
   };
 
+  const [isMounted, setIsMounted] = React.useState(false);
+  
+  React.useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   const child = React.Children.only(children);
   
   return (
@@ -59,10 +65,7 @@ export default function Magnetic({
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       className={`inline-block ${className}`}
-      style={{
-        x: springX,
-        y: springY,
-      }}
+      style={isMounted ? { x: springX, y: springY } : undefined}
     >
       {child}
     </motion.div>

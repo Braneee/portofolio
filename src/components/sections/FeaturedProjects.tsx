@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { motion, Variants } from "motion/react";
 import Card from "../ui/Card";
