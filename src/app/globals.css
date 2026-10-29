@@ -325,7 +325,7 @@ a {
   padding: 22px 0;
   text-align: center;
 }
-.skill-strip span {
+.skill-strip-track span {
   font-family:
     var(--font-archivo-black),
     Arial Black,
@@ -335,6 +335,12 @@ a {
   font-weight: 900;
   letter-spacing: 0.02em;
   white-space: nowrap;
+  flex: none;
+  padding-right: 4rem;
+}
+.skill-strip-track {
+  display: flex;
+  width: max-content;
 }
 .projects-section {
   background: var(--sand);
@@ -1298,6 +1304,91 @@ a {
   }
   .contact-back {
     margin-top: 30px;
+  }
+}
+@keyframes home-hero-enter {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes home-card-enter {
+  from {
+    opacity: 0;
+    transform: translateY(35px) rotate(-5deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+  }
+}
+@keyframes home-lanyard-sway {
+  0%,
+  100% {
+    transform: rotate(4deg);
+  }
+  50% {
+    transform: rotate(1.5deg);
+  }
+}
+@keyframes home-strip-scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes home-section-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes home-card-reveal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero-copy > * {
+    animation: home-hero-enter 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  .hero-copy > :nth-child(2) {
+    animation-delay: 0.1s;
+  }
+  .hero-copy > :nth-child(3) {
+    animation-delay: 0.2s;
+  }
+  .hero-copy > :nth-child(4) {
+    animation-delay: 0.3s;
+  }
+  .lanyard-scene {
+    animation: home-card-enter 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.18s both;
+  }
+  .lanyard-card {
+    transform-origin: 50% 4%;
+    animation: home-lanyard-sway 5.5s ease-in-out 1s infinite;
+  }
+  .skill-strip-track {
+    animation: home-strip-scroll 36s linear infinite;
+  }
+  [data-motion-pending] {
+    opacity: 0;
+  }
+  [data-motion-visible] {
+    animation: home-section-reveal 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  [data-home-reveal="card"][data-motion-visible] {
+    animation-name: home-card-reveal;
   }
 }
 @media (prefers-reduced-motion: reduce) {

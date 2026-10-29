@@ -4,10 +4,12 @@ import { profile } from "@/content/profile";
 import { featuredProjects } from "@/content/projects";
 import { education } from "@/content/education";
 import { certificates } from "@/content/certificates";
+import HomeMotion from "@/components/home/HomeMotion";
 
 export default function Home() {
   return (
     <>
+      <HomeMotion />
       <section
         className="portfolio-hero section-shell"
         aria-labelledby="hero-title"
@@ -48,11 +50,20 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <div
-        className="skill-strip"
-        aria-label="Teknologi: Flutter, Android, React, Laravel, API, PostgreSQL"
-      >
-        <span>FLUTTER ✱ ANDROID ✱ REACT ✱ LARAVEL ✱ API ✱ POSTGRESQL ✱</span>
+      <div className="skill-strip">
+        <span className="sr-only">
+          Teknologi: Flutter, Android, React, Laravel, API, PostgreSQL
+        </span>
+        <div className="skill-strip-track" aria-hidden="true">
+          <span>
+            FLUTTER ✱ ANDROID ✱ REACT ✱ LARAVEL ✱ API ✱ POSTGRESQL ✱ FLUTTER ✱
+            ANDROID ✱ REACT ✱ LARAVEL ✱ API ✱ POSTGRESQL ✱
+          </span>
+          <span>
+            FLUTTER ✱ ANDROID ✱ REACT ✱ LARAVEL ✱ API ✱ POSTGRESQL ✱ FLUTTER ✱
+            ANDROID ✱ REACT ✱ LARAVEL ✱ API ✱ POSTGRESQL ✱
+          </span>
+        </div>
       </div>
       <section
         id="karya"
@@ -60,7 +71,7 @@ export default function Home() {
         aria-labelledby="projects-title"
       >
         <div className="section-shell">
-          <div className="section-heading">
+          <div className="section-heading" data-home-reveal>
             <div>
               <p className="eyebrow">01 / PILIHAN KARYA</p>
               <h2 id="projects-title">
@@ -73,7 +84,11 @@ export default function Home() {
           </div>
           <div className="project-grid">
             {featuredProjects.map((project, index) => (
-              <article className="project-card" key={project.slug}>
+              <article
+                className="project-card"
+                key={project.slug}
+                data-home-reveal="card"
+              >
                 <div className={`project-image project-image-${index + 1}`}>
                   <Image
                     src={project.image}
@@ -115,7 +130,7 @@ export default function Home() {
         className="stack-section section-pad"
         aria-labelledby="stack-title"
       >
-        <div className="section-shell stack-layout">
+        <div className="section-shell stack-layout" data-home-reveal>
           <div>
             <p className="eyebrow">02 / PENDEKATAN</p>
             <h2 id="stack-title">
@@ -136,7 +151,7 @@ export default function Home() {
         aria-labelledby="education-title"
       >
         <div className="section-shell">
-          <div className="section-heading">
+          <div className="section-heading" data-home-reveal>
             <div>
               <p className="eyebrow">03 / PERJALANAN</p>
               <h2 id="education-title">
@@ -146,7 +161,7 @@ export default function Home() {
           </div>
           <ol className="timeline">
             {education.map((item) => (
-              <li key={item.period}>
+              <li key={item.period} data-home-reveal>
                 <span className="timeline-date">{item.period}</span>
                 <span className="timeline-node" aria-hidden="true" />
                 <div className="timeline-card">
@@ -166,7 +181,7 @@ export default function Home() {
         aria-labelledby="certificates-title"
       >
         <div className="section-shell">
-          <div className="section-heading">
+          <div className="section-heading" data-home-reveal>
             <div>
               <p className="eyebrow">04 / PEMBELAJARAN</p>
               <h2 id="certificates-title">
@@ -180,6 +195,7 @@ export default function Home() {
               {certificates.map((item) => (
                 <a
                   className="certificate-card"
+                  data-home-reveal="card"
                   key={item.title}
                   href={item.url}
                   target="_blank"
@@ -206,7 +222,7 @@ export default function Home() {
         className="contact-section section-pad"
         aria-labelledby="contact-title"
       >
-        <div className="section-shell">
+        <div className="section-shell" data-home-reveal>
           <p className="eyebrow">Punya ide aplikasi?</p>
           <h2 id="contact-title">
             <Link href="/contact">

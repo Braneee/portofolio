@@ -12,7 +12,7 @@
     "start": "next start",
     "lint": "eslint src tests playwright.config.ts",
     "typecheck": "tsc --noEmit",
-    "format:check": "prettier --check src/app/page.tsx src/app/projects src/app/resume src/app/blog src/app/contact src/app/globals.css src/content src/components/layout src/components/brand src/components/projects src/components/contact tests playwright.config.ts package.json eslint.config.mjs postcss.config.mjs tsconfig.json",
+    "format:check": "prettier --check src/app/page.tsx src/app/projects src/app/resume src/app/blog src/app/contact src/app/globals.css src/content src/components/layout src/components/brand src/components/projects src/components/contact src/components/home tests playwright.config.ts package.json eslint.config.mjs postcss.config.mjs tsconfig.json .prettierrc.json",
     "audit:a11y": "playwright test",
     "prepare": "husky"
   },
