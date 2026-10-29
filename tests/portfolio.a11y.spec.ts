@@ -108,6 +108,12 @@ test("animasi beranda aktif dan bagian muncul saat digulir", async ({
     12,
   );
   await expect(page.locator(".skill-strip-track")).not.toContainText("FLUTTER");
+  const iconColors = await page
+    .locator(".skill-strip-group")
+    .first()
+    .locator(".tech-mark")
+    .evaluateAll((marks) => marks.map((mark) => getComputedStyle(mark).color));
+  expect(new Set(iconColors).size).toBe(6);
 
   const stripAnimation = await page
     .locator(".skill-strip-track")

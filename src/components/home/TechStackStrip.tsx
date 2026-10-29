@@ -26,7 +26,12 @@ export default function TechStackStrip() {
         {[0, 1].map((copy) => (
           <div className="skill-strip-group" key={copy}>
             {technologies.map(({ name, Icon }) => (
-              <span className="tech-mark" title={name} key={`${copy}-${name}`}>
+              <span
+                className="tech-mark"
+                data-tech={name.toLowerCase()}
+                title={name}
+                key={`${copy}-${name}`}
+              >
                 <Icon />
               </span>
             ))}
