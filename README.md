@@ -35,7 +35,7 @@ Ubah identitas, proyek, pendidikan, pengalaman, dan sertifikat di `src/content/`
 
 Logo, foto, tangkapan layar proyek, dan PDF sertifikat berada di `public/`. Jangan menambahkan statistik proyek tanpa hasil pengukuran yang dapat diverifikasi.
 
-Temuan tautan dan perbedaan antara CV web dan PDF dicatat di [`docs/publication-audit-2026-10-29.md`](docs/publication-audit-2026-10-29.md). Tautan Play Store STPI Mobile dihilangkan karena mengembalikan 404; tambahkan lagi setelah URL publiknya dipastikan.
+Tautan Play Store STPI Mobile dihilangkan karena mengembalikan 404; tambahkan lagi setelah URL publiknya dipastikan.
 
 ## Status renovasi
 
