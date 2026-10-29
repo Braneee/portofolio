@@ -322,25 +322,33 @@ a {
   background: var(--espresso);
   color: var(--terracotta);
   transform: rotate(-1.2deg) scale(1.02);
-  padding: 22px 0;
-  text-align: center;
-}
-.skill-strip-track span {
-  font-family:
-    var(--font-archivo-black),
-    Arial Black,
-    Impact,
-    sans-serif;
-  font-size: clamp(18px, 2.2vw, 28px);
-  font-weight: 900;
-  letter-spacing: 0.02em;
-  white-space: nowrap;
-  flex: none;
-  padding-right: 4rem;
+  padding-block: 19px;
 }
 .skill-strip-track {
   display: flex;
   width: max-content;
+}
+.skill-strip-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex: 0 0 100vw;
+}
+.tech-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(42px, 5vw, 68px);
+  height: clamp(42px, 5vw, 68px);
+  flex: none;
+  transition: transform 0.25s ease;
+}
+.tech-mark svg {
+  width: 68%;
+  height: 68%;
+}
+.tech-mark:hover {
+  transform: scale(1.16);
 }
 .projects-section {
   background: var(--sand);

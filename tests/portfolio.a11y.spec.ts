@@ -104,6 +104,11 @@ test("animasi beranda aktif dan bagian muncul saat digulir", async ({
   await page.emulateMedia({ reducedMotion: "no-preference" });
   await page.goto("/");
 
+  await expect(page.locator(".skill-strip-group .tech-mark svg")).toHaveCount(
+    12,
+  );
+  await expect(page.locator(".skill-strip-track")).not.toContainText("FLUTTER");
+
   const stripAnimation = await page
     .locator(".skill-strip-track")
     .evaluate((element) => getComputedStyle(element).animationName);

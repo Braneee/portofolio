@@ -5,6 +5,7 @@ import { featuredProjects } from "@/content/projects";
 import { education } from "@/content/education";
 import { certificates } from "@/content/certificates";
 import HomeMotion from "@/components/home/HomeMotion";
+import TechStackStrip from "@/components/home/TechStackStrip";
 
 export default function Home() {
   return (
@@ -50,21 +51,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <div className="skill-strip">
-        <span className="sr-only">
-          Teknologi: Flutter, Android, React, Laravel, API, PostgreSQL
-        </span>
-        <div className="skill-strip-track" aria-hidden="true">
-          <span>
-            FLUTTER ✱ ANDROID ✱ REACT ✱ LARAVEL ✱ API ✱ POSTGRESQL ✱ FLUTTER ✱
-            ANDROID ✱ REACT ✱ LARAVEL ✱ API ✱ POSTGRESQL ✱
-          </span>
-          <span>
-            FLUTTER ✱ ANDROID ✱ REACT ✱ LARAVEL ✱ API ✱ POSTGRESQL ✱ FLUTTER ✱
-            ANDROID ✱ REACT ✱ LARAVEL ✱ API ✱ POSTGRESQL ✱
-          </span>
-        </div>
-      </div>
+      <TechStackStrip />
       <section
         id="karya"
         className="projects-section section-pad"
