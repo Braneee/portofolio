@@ -17,10 +17,10 @@ export default function Magnetic({
   className = "",
 }: MagneticProps) {
   const ref = useRef<HTMLDivElement>(null);
-  
+
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-  
+
   const springConfig = { damping: 15, stiffness: 150, mass: 0.1 };
   const springX = useSpring(x, springConfig);
   const springY = useSpring(y, springConfig);
@@ -29,14 +29,14 @@ export default function Magnetic({
     if (!ref.current) return;
     const { clientX, clientY } = e;
     const { left, top, width, height } = ref.current.getBoundingClientRect();
-    
+
     const centerX = left + width / 2;
     const centerY = top + height / 2;
-    
+
     const distX = clientX - centerX;
     const distY = clientY - centerY;
     const distance = Math.sqrt(distX * distX + distY * distY);
-    
+
     if (distance < range) {
       x.set(distX * strength);
       y.set(distY * strength);
@@ -51,21 +51,15 @@ export default function Magnetic({
     y.set(0);
   };
 
-  const [isMounted, setIsMounted] = React.useState(false);
-  
-  React.useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
   const child = React.Children.only(children);
-  
+
   return (
     <motion.div
       ref={ref}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       className={`inline-block ${className}`}
-      style={isMounted ? { x: springX, y: springY } : undefined}
+      style={{ x: springX, y: springY }}
     >
       {child}
     </motion.div>

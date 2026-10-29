@@ -17,7 +17,7 @@ export default function NeuralCanvas() {
     let height = (canvas.height = canvas.offsetHeight);
 
     const particles: Particle[] = [];
-    const maxParticles = width < 768 ? 30 : 65; 
+    const maxParticles = width < 768 ? 30 : 65;
     const connectionDist = 110;
     const mouse = { x: -1000, y: -1000, radius: 140 };
 
@@ -56,7 +56,7 @@ export default function NeuralCanvas() {
       draw(context: CanvasRenderingContext2D) {
         context.beginPath();
         context.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        context.fillStyle = "rgba(139, 92, 246, 0.25)"; 
+        context.fillStyle = "rgba(139, 92, 246, 0.25)";
         context.fill();
       }
     }
@@ -95,29 +95,33 @@ export default function NeuralCanvas() {
       });
 
       for (let i = 0; i < particles.length; i++) {
+        const first = particles[i];
+        if (!first) continue;
         for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
+          const second = particles[j];
+          if (!second) continue;
+          const dx = first.x - second.x;
+          const dy = first.y - second.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           if (dist < connectionDist) {
             const alpha = (1 - dist / connectionDist) * 0.12;
             ctx.beginPath();
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.moveTo(first.x, first.y);
+            ctx.lineTo(second.x, second.y);
             ctx.strokeStyle = `rgba(139, 92, 246, ${alpha})`;
             ctx.lineWidth = 0.8;
             ctx.stroke();
           }
         }
 
-        const dx = mouse.x - particles[i].x;
-        const dy = mouse.y - particles[i].y;
+        const dx = mouse.x - first.x;
+        const dy = mouse.y - first.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
         if (dist < mouse.radius) {
           const alpha = (1 - dist / mouse.radius) * 0.18;
           ctx.beginPath();
-          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.moveTo(first.x, first.y);
           ctx.lineTo(mouse.x, mouse.y);
           ctx.strokeStyle = `rgba(6, 182, 212, ${alpha})`;
           ctx.lineWidth = 0.9;
@@ -138,5 +142,10 @@ export default function NeuralCanvas() {
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none -z-10" />;
+  return (
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 w-full h-full pointer-events-none -z-10"
+    />
+  );
 }

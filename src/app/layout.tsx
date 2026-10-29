@@ -1,26 +1,31 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Archivo_Black, DM_Sans, Space_Mono } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/ThemeProvider";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+const archivoBlack = Archivo_Black({
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+  variable: "--font-archivo-black",
 });
-
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+const spaceMono = Space_Mono({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  display: "swap",
+  variable: "--font-space-mono",
+});
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-dm-sans",
 });
 
 export const metadata: Metadata = {
-  title: "Gibran Rais Hilmy Iskandar | Developer Portfolio",
-  description: "Personal portfolio website of Gibran Rais Hilmy Iskandar, an Informatics student at UDINUS interested in Mobile, Web, and Backend development.",
-  viewport: "width=device-width, initial-scale=1",
+  title: "Gibran Rais Hilmy Iskandar | Software Engineer & Mobile Developer",
+  description:
+    "Portofolio Gibran Rais Hilmy Iskandar: aplikasi mobile Flutter, proyek web, dan sistem backend.",
 };
 
 export default function RootLayout({
@@ -29,17 +34,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full dark">
+    <html lang="id">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} font-sans flex flex-col min-h-screen bg-bg text-text-primary antialiased`}
+        className={`${archivoBlack.variable} ${spaceMono.variable} ${dmSans.variable} antialiased`}
       >
-        <ThemeProvider>
-          <div className="relative min-h-screen flex flex-col overflow-x-hidden w-full">
-            <Navbar />
-            <main className="flex-grow relative z-10">{children}</main>
-            <Footer />
-          </div>
-        </ThemeProvider>
+        <a className="skip-link" href="#konten">
+          Lewati ke konten
+        </a>
+        <Navbar />
+        <main id="konten">{children}</main>
+        <Footer />
       </body>
     </html>
   );

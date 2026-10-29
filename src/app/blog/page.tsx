@@ -12,17 +12,15 @@ export default function BlogPage() {
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
 
   // Extract all unique tags
-  const allTags = Array.from(
-    new Set(blogPosts.flatMap((post) => post.tags))
-  );
+  const allTags = Array.from(new Set(blogPosts.flatMap((post) => post.tags)));
 
   const filteredPosts = blogPosts.filter((post) => {
     const matchesSearch =
       post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       post.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
-    
+
     const matchesTag = selectedTag ? post.tags.includes(selectedTag) : true;
-    
+
     return matchesSearch && matchesTag;
   });
 
@@ -34,7 +32,8 @@ export default function BlogPage() {
           Technical Writing & Insights
         </h1>
         <p className="mx-auto mt-4 max-w-2xl font-sans text-base text-text-secondary">
-          Writing about mobile application architecture, Flutter state management, backend design patterns, and database security.
+          Writing about mobile application architecture, Flutter state
+          management, backend design patterns, and database security.
         </p>
       </div>
 
@@ -83,7 +82,10 @@ export default function BlogPage() {
       {/* Articles list */}
       <div className="flex flex-col gap-6">
         {filteredPosts.map((post) => (
-          <Card key={post.slug} className="group bg-surface border border-border hover:shadow-md transition-all duration-300">
+          <Card
+            key={post.slug}
+            className="group bg-surface border border-border hover:shadow-md transition-all duration-300"
+          >
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
               {/* Meta details */}
               <div className="flex items-center gap-4 text-xs text-text-tertiary">
@@ -116,7 +118,10 @@ export default function BlogPage() {
             </p>
 
             <div className="mt-5 flex items-center justify-end border-t border-border pt-4">
-              <Link href={`/blog/${post.slug}`} className="group/link flex items-center gap-1 font-sans text-xs font-bold text-primary-500 hover:text-primary-700 transition-colors cursor-pointer">
+              <Link
+                href={`/blog/${post.slug}`}
+                className="group/link flex items-center gap-1 font-sans text-xs font-bold text-primary-500 hover:text-primary-700 transition-colors cursor-pointer"
+              >
                 <span>Read Full Article</span>
                 <ArrowRight className="h-3.5 w-3.5 group-hover/link:translate-x-0.5 transition-transform" />
               </Link>
@@ -127,7 +132,9 @@ export default function BlogPage() {
 
       {filteredPosts.length === 0 && (
         <div className="text-center py-16">
-          <p className="font-sans text-base text-text-tertiary">No articles found matching search criteria.</p>
+          <p className="font-sans text-base text-text-tertiary">
+            No articles found matching search criteria.
+          </p>
         </div>
       )}
     </div>

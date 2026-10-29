@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portofolio Gibran Rais Hilmy Iskandar
 
-## Getting Started
+Portofolio personal berbasis Next.js App Router, React, TypeScript, Tailwind CSS, dan pnpm.
 
-First, run the development server:
+## Menjalankan lokal
+
+Gunakan Node.js 22 LTS sesuai `.nvmrc`, lalu jalankan:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+corepack enable
+pnpm install --frozen-lockfile
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Buka `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Pemeriksaan
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+pnpm lint
+pnpm typecheck
+pnpm format:check
+pnpm build
+pnpm exec playwright install chromium
+pnpm audit:a11y
+```
 
-## Learn More
+Audit axe memeriksa beranda, arsip proyek, contoh detail proyek, CV, blog, contoh artikel, kontak, dan kondisi filter tanpa hasil pada desktop serta lebar 360 px. Hasil audit otomatis tidak menggantikan pengujian keyboard dan pembaca layar. CI menjalankan pemeriksaan yang sama pada pull request. Husky menjalankan lint-staged sebelum commit.
 
-To learn more about Next.js, take a look at the following resources:
+Formulir `/contact` menyiapkan tautan `mailto:` dari isian pengunjung. Situs tidak mengirim pesan atau menyimpan data formulir; pengunjung perlu meninjau dan mengirim draf melalui aplikasi emailnya.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Konten beranda
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Ubah identitas, proyek, pendidikan, pengalaman, dan sertifikat di `src/content/`. Data divalidasi saat diimpor melalui skema Zod di `src/content/schema.ts`. Beranda, arsip dan detail proyek, serta halaman CV membaca sumber yang sama. Blog masih memakai data terpisah di `src/data/blog.ts`.
 
-## Deploy on Vercel
+Logo, foto, tangkapan layar proyek, dan PDF sertifikat berada di `public/`. Jangan menambahkan statistik proyek tanpa hasil pengukuran yang dapat diverifikasi.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Temuan tautan dan perbedaan antara CV web dan PDF dicatat di [`docs/publication-audit-2026-10-29.md`](docs/publication-audit-2026-10-29.md). Tautan Play Store STPI Mobile dihilangkan karena mengembalikan 404; tambahkan lagi setelah URL publiknya dipastikan.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Status renovasi
+
+Fondasi dan halaman portofolio sudah diperbarui. Arsip proyek memiliki filter platform dan teknologi yang dapat digabung. Audit aksesibilitas otomatis sudah berjalan di desktop dan mobile. Interaksi lanyard, tilt, kursor khusus, dan pengujian end-to-end yang lebih luas masih menunggu fase berikutnya. Belum ada deployment yang dibuat dari pekerjaan ini.
