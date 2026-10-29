@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 interface MarqueeItem {
   name: string;
@@ -11,23 +12,29 @@ export default function SkillsMarquee() {
   const row1: MarqueeItem[] = [
     {
       name: "Flutter",
-      image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg",
+      image:
+        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg",
     },
     {
       name: "Dart",
-      image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dart/dart-original.svg",
+      image:
+        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dart/dart-original.svg",
     },
     {
       name: "Riverpod",
       customSvg: (
-        <svg viewBox="0 0 24 24" className="h-5 w-5 fill-[#02569B] dark:fill-[#0175C2]">
+        <svg
+          viewBox="0 0 24 24"
+          className="h-5 w-5 fill-[#02569B] dark:fill-[#0175C2]"
+        >
           <path d="M12 2L2 12h5v8h10v-8h5L12 2zm0 3.8L18.2 11H15v7H9v-7H5.8L12 5.8z" />
         </svg>
       ),
     },
     {
       name: "Supabase",
-      image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg",
+      image:
+        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg",
     },
     {
       name: "Hive DB",
@@ -39,7 +46,8 @@ export default function SkillsMarquee() {
     },
     {
       name: "sqflite",
-      image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqlite/sqlite-original.svg",
+      image:
+        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqlite/sqlite-original.svg",
     },
     {
       name: "Google ML Kit",
@@ -51,48 +59,58 @@ export default function SkillsMarquee() {
     },
     {
       name: "iOS Development",
-      image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apple/apple-original.svg",
+      image:
+        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apple/apple-original.svg",
     },
     {
       name: "Android SDK",
-      image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/android/android-original.svg",
+      image:
+        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/android/android-original.svg",
     },
   ];
 
   const row2: MarqueeItem[] = [
     {
       name: "React",
-      image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
+      image:
+        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
     },
     {
       name: "Next.js 14",
-      image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg",
+      image:
+        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg",
       className: "dark:invert",
     },
     {
       name: "TypeScript",
-      image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg",
+      image:
+        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg",
     },
     {
       name: "Tailwind CSS",
-      image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
+      image:
+        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
     },
     {
       name: "Laravel",
-      image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg",
+      image:
+        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg",
     },
     {
       name: "Django",
-      image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg",
+      image:
+        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg",
       className: "dark:invert",
     },
     {
       name: "PostgreSQL",
-      image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg",
+      image:
+        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg",
     },
     {
       name: "Docker",
-      image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg",
+      image:
+        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg",
     },
     {
       name: "Row Level Security (RLS)",
@@ -122,9 +140,12 @@ export default function SkillsMarquee() {
             >
               <span className="flex h-5 w-5 items-center justify-center shrink-0">
                 {item.image ? (
-                  <img
+                  <Image
                     src={item.image}
                     alt={item.name}
+                    width={20}
+                    height={20}
+                    unoptimized
                     className={`h-5 w-5 object-contain ${item.className || ""}`}
                   />
                 ) : (

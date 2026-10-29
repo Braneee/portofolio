@@ -18,9 +18,9 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     // 1. Get saved theme from localStorage, defaulting to "dark"
     const savedTheme = localStorage.getItem("theme") as Theme | null;
     const initialTheme = savedTheme || "dark";
-    
-    setTheme(initialTheme);
-    
+
+    queueMicrotask(() => setTheme(initialTheme));
+
     if (initialTheme === "dark") {
       document.documentElement.classList.add("dark");
       document.documentElement.setAttribute("data-theme", "dark");
@@ -34,7 +34,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
     localStorage.setItem("theme", newTheme);
-    
+
     if (newTheme === "dark") {
       document.documentElement.classList.add("dark");
       document.documentElement.setAttribute("data-theme", "dark");

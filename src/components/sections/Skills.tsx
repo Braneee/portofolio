@@ -1,11 +1,25 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { motion } from "motion/react";
 import Card from "../ui/Card";
-import { 
-  Smartphone, Server, Laptop, Cpu, Award, Check, X, ExternalLink,
-  Code, Database, Lock, Brain, Layout, Globe, Compass 
+import {
+  Smartphone,
+  Server,
+  Laptop,
+  Cpu,
+  Award,
+  Check,
+  X,
+  ExternalLink,
+  Code,
+  Database,
+  Lock,
+  Brain,
+  Layout,
+  Globe,
+  Compass,
 } from "lucide-react";
 
 interface SkillCategoryProps {
@@ -16,45 +30,287 @@ interface SkillCategoryProps {
 function SkillCategoryRow({ title, skills }: SkillCategoryProps) {
   const getSkillLogo = (skill: string) => {
     const name = skill.toLowerCase();
-    
+
     // Devicons SVGs
-    if (name.includes("flutter")) return <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" className="h-3.5 w-3.5 shrink-0" alt="" />;
-    if (name.includes("dart")) return <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" className="h-3.5 w-3.5 shrink-0" alt="" />;
-    if (name.includes("sqlite") || name.includes("sqflite")) return <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" className="h-3.5 w-3.5 shrink-0" alt="" />;
-    if (name.includes("android")) return <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg" className="h-3.5 w-3.5 shrink-0" alt="" />;
-    
-    if (name.includes("laravel")) return <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" className="h-3.5 w-3.5 shrink-0" alt="" />;
-    if (name.includes("php")) return <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" className="h-3.5 w-3.5 shrink-0" alt="" />;
-    if (name.includes("django")) return <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" className="h-3.5 w-3.5 shrink-0" alt="" />;
-    if (name.includes("python")) return <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" className="h-3.5 w-3.5 shrink-0" alt="" />;
-    if (name.includes("postgresql")) return <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" className="h-3.5 w-3.5 shrink-0" alt="" />;
-    if (name.includes("mysql")) return <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" className="h-3.5 w-3.5 shrink-0" alt="" />;
-    if (name.includes("redis")) return <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" className="h-3.5 w-3.5 shrink-0" alt="" />;
-    if (name.includes("rabbitmq")) return <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rabbitmq/rabbitmq-original.svg" className="h-3.5 w-3.5 shrink-0" alt="" />;
+    if (name.includes("flutter"))
+      return (
+        <Image
+          unoptimized
+          width={14}
+          height={14}
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg"
+          className="h-3.5 w-3.5 shrink-0"
+          alt=""
+        />
+      );
+    if (name.includes("dart"))
+      return (
+        <Image
+          unoptimized
+          width={14}
+          height={14}
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg"
+          className="h-3.5 w-3.5 shrink-0"
+          alt=""
+        />
+      );
+    if (name.includes("sqlite") || name.includes("sqflite"))
+      return (
+        <Image
+          unoptimized
+          width={14}
+          height={14}
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg"
+          className="h-3.5 w-3.5 shrink-0"
+          alt=""
+        />
+      );
+    if (name.includes("android"))
+      return (
+        <Image
+          unoptimized
+          width={14}
+          height={14}
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg"
+          className="h-3.5 w-3.5 shrink-0"
+          alt=""
+        />
+      );
 
-    if (name.includes("react")) return <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" className="h-3.5 w-3.5 shrink-0" alt="" />;
-    if (name.includes("next.js")) return <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-line.svg" className="h-3.5 w-3.5 dark:invert shrink-0" alt="" />;
-    if (name.includes("typescript")) return <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" className="h-3.5 w-3.5 shrink-0" alt="" />;
-    if (name.includes("tailwindcss") || name.includes("tailwind css")) return <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" className="h-3.5 w-3.5 shrink-0" alt="" />;
-    if (name.includes("vite")) return <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vite/vite-original.svg" className="h-3.5 w-3.5 shrink-0" alt="" />;
-    if (name.includes("html5")) return <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" className="h-3.5 w-3.5 shrink-0" alt="" />;
-    if (name.includes("css3")) return <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" className="h-3.5 w-3.5 shrink-0" alt="" />;
+    if (name.includes("laravel"))
+      return (
+        <Image
+          unoptimized
+          width={14}
+          height={14}
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg"
+          className="h-3.5 w-3.5 shrink-0"
+          alt=""
+        />
+      );
+    if (name.includes("php"))
+      return (
+        <Image
+          unoptimized
+          width={14}
+          height={14}
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg"
+          className="h-3.5 w-3.5 shrink-0"
+          alt=""
+        />
+      );
+    if (name.includes("django"))
+      return (
+        <Image
+          unoptimized
+          width={14}
+          height={14}
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg"
+          className="h-3.5 w-3.5 shrink-0"
+          alt=""
+        />
+      );
+    if (name.includes("python"))
+      return (
+        <Image
+          unoptimized
+          width={14}
+          height={14}
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+          className="h-3.5 w-3.5 shrink-0"
+          alt=""
+        />
+      );
+    if (name.includes("postgresql"))
+      return (
+        <Image
+          unoptimized
+          width={14}
+          height={14}
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
+          className="h-3.5 w-3.5 shrink-0"
+          alt=""
+        />
+      );
+    if (name.includes("mysql"))
+      return (
+        <Image
+          unoptimized
+          width={14}
+          height={14}
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
+          className="h-3.5 w-3.5 shrink-0"
+          alt=""
+        />
+      );
+    if (name.includes("redis"))
+      return (
+        <Image
+          unoptimized
+          width={14}
+          height={14}
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg"
+          className="h-3.5 w-3.5 shrink-0"
+          alt=""
+        />
+      );
+    if (name.includes("rabbitmq"))
+      return (
+        <Image
+          unoptimized
+          width={14}
+          height={14}
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rabbitmq/rabbitmq-original.svg"
+          className="h-3.5 w-3.5 shrink-0"
+          alt=""
+        />
+      );
 
-    if (name.includes("docker")) return <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" className="h-3.5 w-3.5 shrink-0" alt="" />;
-    if (name.includes("git")) return <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" className="h-3.5 w-3.5 shrink-0" alt="" />;
+    if (name.includes("react"))
+      return (
+        <Image
+          unoptimized
+          width={14}
+          height={14}
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+          className="h-3.5 w-3.5 shrink-0"
+          alt=""
+        />
+      );
+    if (name.includes("next.js"))
+      return (
+        <Image
+          unoptimized
+          width={14}
+          height={14}
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-line.svg"
+          className="h-3.5 w-3.5 dark:invert shrink-0"
+          alt=""
+        />
+      );
+    if (name.includes("typescript"))
+      return (
+        <Image
+          unoptimized
+          width={14}
+          height={14}
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+          className="h-3.5 w-3.5 shrink-0"
+          alt=""
+        />
+      );
+    if (name.includes("tailwindcss") || name.includes("tailwind css"))
+      return (
+        <Image
+          unoptimized
+          width={14}
+          height={14}
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"
+          className="h-3.5 w-3.5 shrink-0"
+          alt=""
+        />
+      );
+    if (name.includes("vite"))
+      return (
+        <Image
+          unoptimized
+          width={14}
+          height={14}
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vite/vite-original.svg"
+          className="h-3.5 w-3.5 shrink-0"
+          alt=""
+        />
+      );
+    if (name.includes("html5"))
+      return (
+        <Image
+          unoptimized
+          width={14}
+          height={14}
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+          className="h-3.5 w-3.5 shrink-0"
+          alt=""
+        />
+      );
+    if (name.includes("css3"))
+      return (
+        <Image
+          unoptimized
+          width={14}
+          height={14}
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+          className="h-3.5 w-3.5 shrink-0"
+          alt=""
+        />
+      );
+
+    if (name.includes("docker"))
+      return (
+        <Image
+          unoptimized
+          width={14}
+          height={14}
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
+          className="h-3.5 w-3.5 shrink-0"
+          alt=""
+        />
+      );
+    if (name.includes("git"))
+      return (
+        <Image
+          unoptimized
+          width={14}
+          height={14}
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+          className="h-3.5 w-3.5 shrink-0"
+          alt=""
+        />
+      );
 
     // Custom PNG/SVG Icons
-    if (name.includes("supabase")) return <img src="https://raw.githubusercontent.com/supabase/supabase/master/web/static/favicon.ico" className="h-3.5 w-3.5 shrink-0" alt="" />;
-    if (name.includes("riverpod")) return <img src="https://raw.githubusercontent.com/rrousselGit/riverpod/master/resources/riverpod_logo.png" className="h-3.5 w-3.5 shrink-0" alt="" />;
+    if (name.includes("supabase"))
+      return (
+        <Image
+          unoptimized
+          width={14}
+          height={14}
+          src="https://raw.githubusercontent.com/supabase/supabase/master/web/static/favicon.ico"
+          className="h-3.5 w-3.5 shrink-0"
+          alt=""
+        />
+      );
+    if (name.includes("riverpod"))
+      return (
+        <Image
+          unoptimized
+          width={14}
+          height={14}
+          src="https://raw.githubusercontent.com/rrousselGit/riverpod/master/resources/riverpod_logo.png"
+          className="h-3.5 w-3.5 shrink-0"
+          alt=""
+        />
+      );
 
     // Semantic Lucide Fallbacks
-    if (name.includes("hive")) return <Database className="h-3.5 w-3.5 text-primary-500 shrink-0" />;
-    if (name.includes("ml kit") || name.includes("ai")) return <Brain className="h-3.5 w-3.5 text-primary-500 shrink-0" />;
-    if (name.includes("celery")) return <Cpu className="h-3.5 w-3.5 text-primary-500 shrink-0" />;
-    if (name.includes("grid") || name.includes("responsive")) return <Layout className="h-3.5 w-3.5 text-primary-500 shrink-0" />;
-    if (name.includes("api")) return <Globe className="h-3.5 w-3.5 text-primary-500 shrink-0" />;
-    if (name.includes("security") || name.includes("rls") || name.includes("authentication") || name.includes("jwt")) return <Lock className="h-3.5 w-3.5 text-primary-500 shrink-0" />;
-    if (name.includes("routing") || name.includes("spatial")) return <Compass className="h-3.5 w-3.5 text-primary-500 shrink-0" />;
+    if (name.includes("hive"))
+      return <Database className="h-3.5 w-3.5 text-primary-500 shrink-0" />;
+    if (name.includes("ml kit") || name.includes("ai"))
+      return <Brain className="h-3.5 w-3.5 text-primary-500 shrink-0" />;
+    if (name.includes("celery"))
+      return <Cpu className="h-3.5 w-3.5 text-primary-500 shrink-0" />;
+    if (name.includes("grid") || name.includes("responsive"))
+      return <Layout className="h-3.5 w-3.5 text-primary-500 shrink-0" />;
+    if (name.includes("api"))
+      return <Globe className="h-3.5 w-3.5 text-primary-500 shrink-0" />;
+    if (
+      name.includes("security") ||
+      name.includes("rls") ||
+      name.includes("authentication") ||
+      name.includes("jwt")
+    )
+      return <Lock className="h-3.5 w-3.5 text-primary-500 shrink-0" />;
+    if (name.includes("routing") || name.includes("spatial"))
+      return <Compass className="h-3.5 w-3.5 text-primary-500 shrink-0" />;
 
     return <Code className="h-3.5 w-3.5 text-primary-500 shrink-0" />;
   };
@@ -86,29 +342,36 @@ interface CertItem {
 }
 
 export default function Skills() {
-  const [modalPdf, setModalPdf] = useState<{ name: string; url: string } | null>(null);
+  const [modalPdf, setModalPdf] = useState<{
+    name: string;
+    url: string;
+  } | null>(null);
   const [activeTab, setActiveTab] = useState<"ml" | "ai" | "genai">("ml");
 
   const proficiencies = [
     {
       name: "Mobile Engineering",
       icon: <Smartphone className="h-4 w-4" />,
-      description: "Building production-grade cross-platform applications using Flutter and Dart, with structured state management (Riverpod/Provider) and offline-capable data layers.",
+      description:
+        "Building production-grade cross-platform applications using Flutter and Dart, with structured state management (Riverpod/Provider) and offline-capable data layers.",
     },
     {
       name: "Backend & Systems",
       icon: <Server className="h-4 w-4" />,
-      description: "Designing reliable RESTful APIs using PHP (Laravel) and Python (Django), paired with transactional databases (PostgreSQL/MySQL) and task queues (Celery/Redis).",
+      description:
+        "Designing reliable RESTful APIs using PHP (Laravel) and Python (Django), paired with transactional databases (PostgreSQL/MySQL) and task queues (Celery/Redis).",
     },
     {
       name: "Modern Web Interfaces",
       icon: <Laptop className="h-4 w-4" />,
-      description: "Developing responsive frontend architectures with React, Next.js, and TypeScript, optimized for speed, semantic markup, and cross-browser accessibility.",
+      description:
+        "Developing responsive frontend architectures with React, Next.js, and TypeScript, optimized for speed, semantic markup, and cross-browser accessibility.",
     },
     {
       name: "Machine Learning & AI",
       icon: <Cpu className="h-4 w-4" />,
-      description: "Applying predictive modeling, supervised classification, and exploratory data analysis concepts using modern ML workflows.",
+      description:
+        "Applying predictive modeling, supervised classification, and exploratory data analysis concepts using modern ML workflows.",
     },
   ];
 
@@ -122,7 +385,7 @@ export default function Skills() {
         "SQLite (sqflite)",
         "Hive Local DB",
         "Google ML Kit Integration",
-        "Android SDK Tools"
+        "Android SDK Tools",
       ],
     },
     {
@@ -134,7 +397,7 @@ export default function Skills() {
         "MySQL / PostgreSQL",
         "Redis Caching",
         "Celery Task Queues",
-        "RabbitMQ Message Broker"
+        "RabbitMQ Message Broker",
       ],
     },
     {
@@ -146,7 +409,7 @@ export default function Skills() {
         "Tailwind CSS",
         "Vite Build Tool",
         "HTML5 / CSS3",
-        "Responsive Grid Layouts"
+        "Responsive Grid Layouts",
       ],
     },
     {
@@ -157,7 +420,7 @@ export default function Skills() {
         "REST API Design Standards",
         "PostgreSQL Row Level Security (RLS)",
         "PostGIS Spatial Routing",
-        "JWT Authentication"
+        "JWT Authentication",
       ],
     },
   ];
@@ -176,15 +439,18 @@ export default function Skills() {
       },
       {
         name: "Exploratory Data Analysis for Machine Learning",
-        pdfPath: "/sertifikat/Coursera Sertifikat DataMining - Exploratory Data Analysis For Machine Learning - Gibran.pdf",
+        pdfPath:
+          "/sertifikat/Coursera Sertifikat DataMining - Exploratory Data Analysis For Machine Learning - Gibran.pdf",
       },
       {
         name: "Supervised Machine Learning: Classification",
-        pdfPath: "/sertifikat/Coursera Sertifikat DataMining - Supervised Machine Learning Classification - Gibran.pdf",
+        pdfPath:
+          "/sertifikat/Coursera Sertifikat DataMining - Supervised Machine Learning Classification - Gibran.pdf",
       },
       {
         name: "Supervised Machine Learning: Regression",
-        pdfPath: "/sertifikat/Coursera Sertifikat DataMining - Supervised Machine Learning Regression - Gibran.pdf",
+        pdfPath:
+          "/sertifikat/Coursera Sertifikat DataMining - Supervised Machine Learning Regression - Gibran.pdf",
       },
       {
         name: "Unsupervised Machine Learning",
@@ -192,7 +458,8 @@ export default function Skills() {
       },
       {
         name: "Deep Learning & Reinforcement Learning",
-        pdfPath: "/sertifikat/Coursera Materi Deep Learning adn Reinforcement Learning.pdf",
+        pdfPath:
+          "/sertifikat/Coursera Materi Deep Learning adn Reinforcement Learning.pdf",
       },
       {
         name: "Machine Learning with Python",
@@ -206,24 +473,29 @@ export default function Skills() {
     ai: [
       {
         name: "IBM AI Engineering Professional Certificate (Specialization)",
-        pdfPath: "/sertifikat/Coursera Sertif Professional IBM AI Engineering.pdf",
+        pdfPath:
+          "/sertifikat/Coursera Sertif Professional IBM AI Engineering.pdf",
         special: true,
       },
       {
         name: "AI Capstone Project with Deep Learning",
-        pdfPath: "/sertifikat/Coursera Sertif AI Capstone Project with Deep Learning.pdf",
+        pdfPath:
+          "/sertifikat/Coursera Sertif AI Capstone Project with Deep Learning.pdf",
       },
       {
         name: "Introduction to Deep Learning & Neural Networks with Keras",
-        pdfPath: "/sertifikat/Coursera Sertif Introduction to Deep Learning & Neural Networks with Keras.pdf",
+        pdfPath:
+          "/sertifikat/Coursera Sertif Introduction to Deep Learning & Neural Networks with Keras.pdf",
       },
       {
         name: "Introduction to Neural Networks and PyTorch",
-        pdfPath: "/sertifikat/Coursera Sertif Introduction to Neural Networks and PyTorch.pdf",
+        pdfPath:
+          "/sertifikat/Coursera Sertif Introduction to Neural Networks and PyTorch.pdf",
       },
       {
         name: "Deep Learning with Keras and Tensorflow",
-        pdfPath: "/sertifikat/Coursera Sertif Deep Learning with Keras and Tensorflow.pdf",
+        pdfPath:
+          "/sertifikat/Coursera Sertif Deep Learning with Keras and Tensorflow.pdf",
       },
       {
         name: "Deep Learning with PyTorch",
@@ -233,32 +505,39 @@ export default function Skills() {
     genai: [
       {
         name: "Fundamentals of AI Agents Using RAG and LangChain",
-        pdfPath: "/sertifikat/Coursera Sertif Fundamentals of AI Agents Using RAG and LangChain.pdf",
+        pdfPath:
+          "/sertifikat/Coursera Sertif Fundamentals of AI Agents Using RAG and LangChain.pdf",
         special: true,
       },
       {
         name: "Project - Generative AI Applications with RAG and LangChain",
-        pdfPath: "/sertifikat/Coursera Sertif Project - Generative AI Applications with RAG and LangChain.pdf",
+        pdfPath:
+          "/sertifikat/Coursera Sertif Project - Generative AI Applications with RAG and LangChain.pdf",
       },
       {
         name: "Generative AI: Language Modeling with Transformers",
-        pdfPath: "/sertifikat/Coursera Sertif Generative AI Language Modeling with Transformers.pdf",
+        pdfPath:
+          "/sertifikat/Coursera Sertif Generative AI Language Modeling with Transformers.pdf",
       },
       {
         name: "Generative AI: Advanced Fine-Tuning for LLMs",
-        pdfPath: "/sertifikat/Coursera Sertif Generative AI Advance Fine-Tuning for LLMs.pdf",
+        pdfPath:
+          "/sertifikat/Coursera Sertif Generative AI Advance Fine-Tuning for LLMs.pdf",
       },
       {
         name: "Generative AI and LLMs: Architecture and Data Preparation",
-        pdfPath: "/sertifikat/Coursera Sertif Generative AI and LLMs - Arhitecture and Data Preparation.pdf",
+        pdfPath:
+          "/sertifikat/Coursera Sertif Generative AI and LLMs - Arhitecture and Data Preparation.pdf",
       },
       {
         name: "Gen AI Foundational Models for NLP & Language Understanding",
-        pdfPath: "/sertifikat/Coursera Sertif Gen AI Foundational Models for NLP & Language Understanding.pdf",
+        pdfPath:
+          "/sertifikat/Coursera Sertif Gen AI Foundational Models for NLP & Language Understanding.pdf",
       },
       {
         name: "AI Engineering and Fine-Tuning Transformers",
-        pdfPath: "/sertifikat/Coursera Sertif AI Engineering and Fine-Tuning Transformers.pdf",
+        pdfPath:
+          "/sertifikat/Coursera Sertif AI Engineering and Fine-Tuning Transformers.pdf",
       },
     ],
   };
@@ -277,18 +556,18 @@ export default function Skills() {
           Core Competencies & Stack
         </h2>
         <p className="font-sans text-sm text-text-secondary mt-2 max-w-xl">
-          A structured summary of primary engineering focus areas, tech stacks, and development infrastructure.
+          A structured summary of primary engineering focus areas, tech stacks,
+          and development infrastructure.
         </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-        
         {/* Left Column: Core Focus Areas */}
         <div className="lg:col-span-5 flex flex-col gap-6">
           <span className="font-mono text-xs font-bold uppercase tracking-wider text-text-tertiary mb-2 block">
             Focus Areas
           </span>
-          <motion.div 
+          <motion.div
             className="flex flex-col gap-8"
             initial="hidden"
             whileInView="visible"
@@ -299,17 +578,21 @@ export default function Skills() {
                 opacity: 1,
                 transition: {
                   staggerChildren: 0.1,
-                }
-              }
+                },
+              },
             }}
           >
             {proficiencies.map((attr) => (
-              <motion.div 
-                key={attr.name} 
+              <motion.div
+                key={attr.name}
                 className="flex gap-4"
                 variants={{
                   hidden: { opacity: 0, x: -20 },
-                  visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" } }
+                  visible: {
+                    opacity: 1,
+                    x: 0,
+                    transition: { duration: 0.5, ease: "easeOut" },
+                  },
                 }}
               >
                 <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary-500/10 text-primary-500">
@@ -345,7 +628,7 @@ export default function Skills() {
       <div className="mt-16 pt-8 border-t border-border/60">
         <Card className="bg-gradient-to-r from-primary-500/5 via-primary-600/5 to-transparent border border-primary-500/20 p-6 rounded-2xl relative overflow-hidden">
           <div className="absolute top-0 right-0 h-24 w-24 bg-primary-500/10 rounded-full blur-xl -translate-y-6 translate-x-6" />
-          
+
           <div className="flex items-center gap-2 mb-4">
             <Award className="h-5 w-5 text-primary-500" />
             <h3 className="font-mono text-xs font-extrabold uppercase tracking-wider text-text-primary">
@@ -354,7 +637,9 @@ export default function Skills() {
           </div>
 
           <p className="font-sans text-xs text-text-secondary max-w-2xl leading-relaxed mb-8">
-            Successfully completed coursework in advanced machine learning, neural architectures, and generative models. Click on any certificate below to view the official credential PDF.
+            Successfully completed coursework in advanced machine learning,
+            neural architectures, and generative models. Click on any
+            certificate below to view the official credential PDF.
           </p>
 
           {/* Specialization Category Tabs */}
@@ -396,7 +681,9 @@ export default function Skills() {
             {certsData[activeTab].map((cert) => (
               <div
                 key={cert.name}
-                onClick={() => setModalPdf({ name: cert.name, url: cert.pdfPath })}
+                onClick={() =>
+                  setModalPdf({ name: cert.name, url: cert.pdfPath })
+                }
                 className={`group flex items-center justify-between gap-3 p-3.5 rounded-xl border transition-all duration-200 cursor-pointer ${
                   cert.special
                     ? "bg-primary-500/10 border-primary-500/30 hover:border-primary-500/60"
@@ -404,20 +691,26 @@ export default function Skills() {
                 }`}
               >
                 <div className="flex items-center gap-3">
-                  <span className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full ${
-                    cert.special
-                      ? "bg-primary-500 text-white"
-                      : "bg-emerald-500/10 text-emerald-500 dark:bg-emerald-950/20"
-                  }`}>
+                  <span
+                    className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full ${
+                      cert.special
+                        ? "bg-primary-500 text-white"
+                        : "bg-emerald-500/10 text-emerald-500 dark:bg-emerald-950/20"
+                    }`}
+                  >
                     {cert.special ? (
                       <Award className="h-3.5 w-3.5" />
                     ) : (
                       <Check className="h-3.5 w-3.5" />
                     )}
                   </span>
-                  <span className={`font-sans text-xs font-semibold leading-relaxed group-hover:text-primary-500 transition-colors ${
-                    cert.special ? "text-text-primary font-bold" : "text-text-secondary"
-                  }`}>
+                  <span
+                    className={`font-sans text-xs font-semibold leading-relaxed group-hover:text-primary-500 transition-colors ${
+                      cert.special
+                        ? "text-text-primary font-bold"
+                        : "text-text-secondary"
+                    }`}
+                  >
                     {cert.name}
                   </span>
                 </div>
@@ -432,7 +725,6 @@ export default function Skills() {
       {modalPdf && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-md p-4 animate-fade-in">
           <div className="relative w-full max-w-4xl bg-surface border border-border/80 rounded-2xl shadow-2xl p-6 overflow-hidden flex flex-col">
-            
             {/* Modal Header */}
             <div className="flex items-center justify-between mb-4 border-b border-border/60 pb-3">
               <div className="flex items-center gap-2">
@@ -452,20 +744,19 @@ export default function Skills() {
 
             {/* Modal Body: PDF iframe viewer */}
             <div className="w-full bg-bg-subtle/50 rounded-xl overflow-hidden border border-border/60 relative">
-              
               {/* Responsive Iframe rendering */}
               <iframe
                 src={`${modalPdf.url}#toolbar=0&navpanes=0&scrollbar=0`}
                 className="w-full h-[60vh] sm:h-[65vh] rounded-xl bg-bg"
                 title="Credential Viewer"
               />
-              
             </div>
 
             {/* Modal Footer */}
             <div className="mt-4 flex flex-col sm:flex-row justify-between items-center gap-3">
               <span className="font-sans text-[11px] text-text-tertiary text-center sm:text-left">
-                If the document does not display correctly on your mobile device, please open in a new tab.
+                If the document does not display correctly on your mobile
+                device, please open in a new tab.
               </span>
               <div className="flex gap-2 w-full sm:w-auto">
                 <a
@@ -485,7 +776,6 @@ export default function Skills() {
                 </button>
               </div>
             </div>
-
           </div>
         </div>
       )}
