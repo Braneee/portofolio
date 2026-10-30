@@ -39,4 +39,4 @@ Tautan Play Store STPI Mobile dihilangkan karena mengembalikan 404; tambahkan la
 
 ## Status renovasi
 
-Fondasi dan halaman portofolio sudah diperbarui. Arsip proyek memiliki filter platform dan teknologi yang dapat digabung. Audit aksesibilitas otomatis sudah berjalan di desktop dan mobile. Interaksi lanyard, tilt, kursor khusus, dan pengujian end-to-end yang lebih luas masih menunggu fase berikutnya. Belum ada deployment yang dibuat dari pekerjaan ini.
+Fondasi dan halaman portofolio sudah diperbarui. Arsip proyek memiliki filter platform dan teknologi yang dapat digabung. Audit aksesibilitas otomatis sudah berjalan di desktop dan mobile. Kartu profil bergerak halus dan merespons pointer pada perangkat yang mendukung hover; preferensi reduced motion tetap dihormati. Kursor khusus dan pengujian end-to-end yang lebih luas masih menunggu fase berikutnya. Belum ada deployment yang dibuat dari pekerjaan ini.

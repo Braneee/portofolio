@@ -125,6 +125,12 @@ test("animasi beranda aktif dan bagian muncul saat digulir", async ({
     .evaluate((element) => getComputedStyle(element).animationName);
   expect(lanyardAnimation).toBe("home-lanyard-sway");
 
+  const scene = page.locator(".lanyard-scene");
+  await scene.hover({ position: { x: 100, y: 200 } });
+  await expect(scene).toHaveAttribute("data-interacting", "");
+  await page.mouse.move(0, 0);
+  await expect(scene).not.toHaveAttribute("data-interacting");
+
   const heading = page.locator("#karya .section-heading");
   await heading.scrollIntoViewIfNeeded();
   await expect(heading).toHaveAttribute("data-motion-visible", "");
@@ -142,5 +148,9 @@ test("preferensi reduced motion menonaktifkan animasi beranda", async ({
   expect(stripAnimation).toBe("none");
   await expect(page.locator("#karya .section-heading")).not.toHaveAttribute(
     "data-motion-pending",
+  );
+  await page.locator(".lanyard-scene").hover();
+  await expect(page.locator(".lanyard-scene")).not.toHaveAttribute(
+    "data-interacting",
   );
 });
