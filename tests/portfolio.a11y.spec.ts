@@ -114,6 +114,14 @@ test("animasi beranda aktif dan bagian muncul saat digulir", async ({
     .locator(".tech-mark")
     .evaluateAll((marks) => marks.map((mark) => getComputedStyle(mark).color));
   expect(new Set(iconColors).size).toBe(6);
+  const iconBackgrounds = await page
+    .locator(".skill-strip-group")
+    .first()
+    .locator(".tech-mark")
+    .evaluateAll((marks) =>
+      marks.map((mark) => getComputedStyle(mark).backgroundColor),
+    );
+  expect(iconBackgrounds).toEqual(Array(6).fill("rgba(0, 0, 0, 0)"));
 
   const stripAnimation = await page
     .locator(".skill-strip-track")

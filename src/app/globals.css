@@ -341,12 +341,10 @@ a {
   width: clamp(42px, 5vw, 68px);
   height: clamp(42px, 5vw, 68px);
   flex: none;
-  border-radius: 16px;
-  background: var(--white);
   transition: transform 0.25s ease;
 }
 .tech-mark[data-tech="flutter"] {
-  color: #02569b;
+  color: #54c5f8;
 }
 .tech-mark[data-tech="android"] {
   color: #3ddc84;
@@ -355,13 +353,13 @@ a {
   color: #61dafb;
 }
 .tech-mark[data-tech="laravel"] {
-  color: #ff2d20;
+  color: #ff6b60;
 }
 .tech-mark[data-tech="api"] {
-  color: var(--espresso);
+  color: var(--sand);
 }
 .tech-mark[data-tech="postgresql"] {
-  color: #4169e1;
+  color: #9bb8ff;
 }
 .tech-mark svg {
   width: 68%;
