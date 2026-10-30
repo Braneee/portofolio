@@ -27,18 +27,31 @@ export default function HomeMotion() {
     }
 
     const scene = document.querySelector<HTMLElement>(".lanyard-scene");
+    const card = scene?.querySelector<HTMLElement>(".lanyard-card");
     const canSwing = window.matchMedia(
       "(hover: hover) and (pointer: fine)",
     ).matches;
+    let draggingPointer: number | null = null;
+    let dragStartX = 0;
+    let releaseTimer: ReturnType<typeof setTimeout> | undefined;
 
     const resetSwing = () => {
-      if (!scene) return;
+      if (!scene || draggingPointer !== null) return;
       scene.removeAttribute("data-interacting");
       scene.style.removeProperty("--lanyard-angle");
     };
 
     const updateSwing = (event: PointerEvent) => {
-      if (!scene || event.pointerType === "touch") return;
+      if (!scene) return;
+      if (draggingPointer === event.pointerId) {
+        const angle = Math.max(
+          -22,
+          Math.min(22, (event.clientX - dragStartX) * 0.12),
+        );
+        scene.style.setProperty("--lanyard-angle", `${angle.toFixed(2)}deg`);
+        return;
+      }
+      if (!canSwing || event.pointerType === "touch") return;
       const bounds = scene.getBoundingClientRect();
       const horizontal = (event.clientX - bounds.left) / bounds.width - 0.5;
       scene.style.setProperty(
@@ -48,19 +61,51 @@ export default function HomeMotion() {
       scene.setAttribute("data-interacting", "");
     };
 
-    if (scene && canSwing) {
+    const startDrag = (event: PointerEvent) => {
+      if (
+        !scene ||
+        !card ||
+        (event.pointerType === "mouse" && event.button !== 0)
+      )
+        return;
+      clearTimeout(releaseTimer);
+      draggingPointer = event.pointerId;
+      dragStartX = event.clientX;
+      scene.style.setProperty("--lanyard-angle", "0deg");
+      scene.setAttribute("data-interacting", "");
+      scene.setAttribute("data-dragging", "");
+      card.setPointerCapture(event.pointerId);
+      event.preventDefault();
+    };
+
+    const endDrag = (event: PointerEvent) => {
+      if (!scene || draggingPointer !== event.pointerId) return;
+      draggingPointer = null;
+      scene.removeAttribute("data-dragging");
+      scene.style.setProperty("--lanyard-angle", "0deg");
+      releaseTimer = setTimeout(resetSwing, 700);
+    };
+
+    if (scene && card) {
       scene.addEventListener("pointermove", updateSwing);
       scene.addEventListener("pointerleave", resetSwing);
-      scene.addEventListener("pointercancel", resetSwing);
+      card.addEventListener("pointerdown", startDrag);
+      card.addEventListener("pointerup", endDrag);
+      card.addEventListener("pointercancel", endDrag);
     }
 
     return () => {
       observer.disconnect();
-      if (scene && canSwing) {
+      clearTimeout(releaseTimer);
+      draggingPointer = null;
+      if (scene && card) {
         scene.removeEventListener("pointermove", updateSwing);
         scene.removeEventListener("pointerleave", resetSwing);
-        scene.removeEventListener("pointercancel", resetSwing);
+        card.removeEventListener("pointerdown", startDrag);
+        card.removeEventListener("pointerup", endDrag);
+        card.removeEventListener("pointercancel", endDrag);
       }
+      scene?.removeAttribute("data-dragging");
       resetSwing();
     };
   }, []);

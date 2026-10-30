@@ -139,6 +139,26 @@ test("animasi beranda aktif dan bagian muncul saat digulir", async ({
   await page.mouse.move(0, 0);
   await expect(scene).not.toHaveAttribute("data-interacting");
 
+  const card = page.locator(".lanyard-card");
+  const cardBounds = await card.boundingBox();
+  if (!cardBounds) throw new Error("Kartu profil tidak terlihat");
+  await page.mouse.move(
+    cardBounds.x + cardBounds.width / 2,
+    cardBounds.y + 100,
+  );
+  await page.mouse.down();
+  await expect(scene).toHaveAttribute("data-dragging", "");
+  await page.mouse.move(
+    cardBounds.x + cardBounds.width / 2 + 80,
+    cardBounds.y + 100,
+  );
+  const dragAngle = await scene.evaluate((element) =>
+    element.style.getPropertyValue("--lanyard-angle"),
+  );
+  expect(dragAngle).not.toBe("0deg");
+  await page.mouse.up();
+  await expect(scene).not.toHaveAttribute("data-dragging");
+
   const heading = page.locator("#karya .section-heading");
   await heading.scrollIntoViewIfNeeded();
   await expect(heading).toHaveAttribute("data-motion-visible", "");
