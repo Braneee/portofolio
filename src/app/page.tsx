@@ -29,25 +29,27 @@ export default function Home() {
           className="lanyard-scene"
           aria-label={`Kartu profil ${profile.name}`}
         >
-          <div className="lanyard-strap" aria-hidden="true" />
-          <div className="lanyard-clip" aria-hidden="true" />
-          <div className="lanyard-card">
-            <span className="card-slot" aria-hidden="true" />
-            <p className="eyebrow card-kicker">ID KARTU DEVELOPER</p>
-            <div className="portrait-frame">
-              <Image
-                src={profile.photo}
-                alt={`Potret ${profile.name}`}
-                fill
-                sizes="(max-width: 760px) 240px, 260px"
-                priority
-                className="portrait-image"
-              />
+          <div className="lanyard-pendulum">
+            <div className="lanyard-strap" aria-hidden="true" />
+            <div className="lanyard-card">
+              <div className="lanyard-clip" aria-hidden="true" />
+              <span className="card-slot" aria-hidden="true" />
+              <p className="eyebrow card-kicker">ID KARTU DEVELOPER</p>
+              <div className="portrait-frame">
+                <Image
+                  src={profile.photo}
+                  alt={`Potret ${profile.name}`}
+                  fill
+                  sizes="(max-width: 760px) 240px, 260px"
+                  priority
+                  className="portrait-image"
+                />
+              </div>
+              <h2>{profile.name}</h2>
+              <p className="card-role">Software engineer · Mobile</p>
+              <div className="barcode" aria-hidden="true" />
+              <p className="availability">TERBUKA UNTUK PROYEK</p>
             </div>
-            <h2>{profile.name}</h2>
-            <p className="card-role">Software engineer · Mobile</p>
-            <div className="barcode" aria-hidden="true" />
-            <p className="availability">TERBUKA UNTUK PROYEK</p>
           </div>
         </div>
       </section>

@@ -129,7 +129,7 @@ test("animasi beranda aktif dan bagian muncul saat digulir", async ({
   expect(stripAnimation).toBe("home-strip-scroll");
 
   const lanyardAnimation = await page
-    .locator(".lanyard-card")
+    .locator(".lanyard-pendulum")
     .evaluate((element) => getComputedStyle(element).animationName);
   expect(lanyardAnimation).toBe("home-lanyard-sway");
 

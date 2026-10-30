@@ -230,31 +230,42 @@ a {
   justify-content: center;
   align-items: flex-end;
 }
+.lanyard-pendulum {
+  position: relative;
+  width: 300px;
+  height: 600px;
+  transform-origin: 50% -125px;
+}
 .lanyard-strap {
   position: absolute;
+  left: 50%;
   top: -125px;
   width: 34px;
   height: 270px;
   background: var(--espresso);
+  transform: translateX(-50%);
 }
 .lanyard-clip {
   position: absolute;
-  top: 125px;
+  z-index: 2;
+  left: 50%;
+  top: -16px;
   width: 46px;
   height: 30px;
   border: 4px solid var(--espresso);
   border-radius: 8px;
   background: var(--sand);
+  transform: translateX(-50%);
 }
 .lanyard-card {
-  position: relative;
+  position: absolute;
+  bottom: 0;
   width: 300px;
   background: var(--white);
   border: 3px solid var(--espresso);
   border-radius: 24px;
   padding: 23px 22px 0;
   box-shadow: 13px 13px 0 var(--sand);
-  transform: rotate(4deg);
 }
 .card-slot {
   display: block;
@@ -1211,13 +1222,13 @@ a {
     top: -50px;
     height: 160px;
   }
-  .lanyard-clip {
-    top: 95px;
+  .lanyard-pendulum {
+    width: 270px;
+    height: 530px;
+    transform-origin: 50% -50px;
   }
   .lanyard-card {
-    margin-top: 130px;
     width: 270px;
-    transform: rotate(3deg);
   }
   .portrait-frame {
     height: 195px;
@@ -1355,10 +1366,10 @@ a {
 @keyframes home-lanyard-sway {
   0%,
   100% {
-    transform: rotate(4deg);
+    transform: rotate(-3deg);
   }
   50% {
-    transform: rotate(1.5deg);
+    transform: rotate(3deg);
   }
 }
 @keyframes home-strip-scroll {
@@ -1400,8 +1411,7 @@ a {
   .lanyard-scene {
     animation: home-card-enter 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.18s both;
   }
-  .lanyard-card {
-    transform-origin: 50% 4%;
+  .lanyard-pendulum {
     animation: home-lanyard-sway 5.5s ease-in-out 1s infinite;
   }
   .skill-strip-track {
@@ -1418,14 +1428,10 @@ a {
   }
 }
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
-  .lanyard-scene {
-    perspective: 1000px;
-  }
-  .lanyard-scene[data-interacting] .lanyard-card {
+  .lanyard-scene[data-interacting] .lanyard-pendulum {
     animation: none;
-    transform: rotate(4deg) rotateX(var(--lanyard-tilt-x, 0deg))
-      rotateY(var(--lanyard-tilt-y, 0deg));
-    transition: transform 180ms ease-out;
+    transform: rotate(var(--lanyard-angle, 0deg));
+    transition: transform 420ms cubic-bezier(0.2, 0.8, 0.2, 1);
   }
 }
 @media (prefers-reduced-motion: reduce) {
